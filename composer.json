@@ -1,0 +1,62 @@
+{
+    "name": "grixu/socius-client",
+    "description": "PHP Client for Socius API",
+    "keywords": [
+        "grixu",
+        "socius-client"
+    ],
+    "homepage": "https://github.com/grixu/socius-client",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Mateusz Gostański",
+            "email": "mg@grixu.dev",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^7.2",
+        "illuminate/console": "^8.0",
+        "illuminate/contracts": "^8.0",
+        "illuminate/database": "^8.0",
+        "illuminate/http": "^8.0",
+        "illuminate/support": "^8.0",
+        "spatie/data-transfer-object": "^2.5",
+        "spatie/enum": "^3.4",
+        "spatie/laravel-enum": "^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.3",
+        "orchestra/testbench": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Grixu\\SociusClient\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Grixu\\SociusClient\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Grixu\\SociusClient\\SociusClientServiceProvider"
+            ],
+            "aliases": {
+                "SociusClient": "Grixu\\SociusClient\\SociusClientFacade"
+            }
+        }
+    }
+}

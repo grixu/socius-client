@@ -1,0 +1,59 @@
+<?php
+
+namespace Grixu\SociusClient\Tests\Customer;
+
+use Grixu\SociusClient\Customer\Actions\ParseCustomerAction;
+use Grixu\SociusClient\SociusClientServiceProvider;
+use Grixu\SociusClient\Support\Tests\TestCallApi;
+use Orchestra\Testbench\TestCase;
+
+/**
+ * Class ParseCustomerActionTest
+ * @package Grixu\SociusClient\Tests\Customer
+ */
+class ParseCustomerActionTest extends TestCase
+{
+    private ParseCustomerAction $action;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->action = new ParseCustomerAction();
+    }
+
+    protected function getPackageProviders($app)
+    {
+        return [SociusClientServiceProvider::class];
+    }
+
+    /**
+     * Test standard workflow
+     *
+     * @return void
+     * @test
+     */
+    public function simple_case()
+    {
+        $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.customer'));
+        $result = $this->action->execute($data);
+
+        $this->assertIsArray($result);
+        $this->assertNotEmpty($result);
+    }
+
+    /**
+     * Test standard workflow
+     *
+     * @return void
+     * @test
+     */
+    public function with_operator_included()
+    {
+        $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.customer') . '?include=operator');
+        $result = $this->action->execute($data);
+
+        $this->assertIsArray($result);
+        $this->assertNotEmpty($result);
+    }
+}

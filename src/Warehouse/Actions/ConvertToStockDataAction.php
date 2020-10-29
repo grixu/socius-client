@@ -1,0 +1,32 @@
+<?php
+
+namespace Grixu\SociusClient\Warehouse\Actions;
+
+use Grixu\SociusClient\Warehouse\DataTransferObjects\StockDataCollection;
+
+/**
+ * Class ConvertToStockDataAction
+ * @package Grixu\SociusClient\Warehouse\Actions
+ */
+class ConvertToStockDataAction
+{
+    private ParseStockAction $stockParser;
+
+    /**
+     * ConvertToStockDataAction constructor.
+     */
+    public function __construct()
+    {
+        $this->stockParser = new ParseStockAction();
+    }
+
+
+    public function execute(array $data): StockDataCollection
+    {
+        $finalData = collect($data)->map(function ($item) {
+            return $this->stockParser->execute($item);
+        })->toArray();
+
+        return StockDataCollection::create($finalData);
+    }
+}
