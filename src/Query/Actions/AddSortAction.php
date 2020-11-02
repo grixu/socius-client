@@ -15,7 +15,7 @@ class AddSortAction
         $checkFilters = new CheckParamArrayAction();
 
         if ($checkFilters->execute($sorts, $enumClass)) {
-            if (!empty($data->includes)) {
+            if (!empty($data->sorts)) {
                 $data->sorts = array_unique(array_merge($data->sorts, $sorts));
             } else {
                 $data->sorts = $sorts;
