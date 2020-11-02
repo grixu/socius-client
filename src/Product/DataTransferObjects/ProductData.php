@@ -65,5 +65,7 @@ class ProductData extends DataTransferObject
 
     public ?float $price;
 
+    public ?float $eshopPrice;
+
     public ?Carbon $priceUpdated;
 }

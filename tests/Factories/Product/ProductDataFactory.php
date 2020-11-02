@@ -44,6 +44,7 @@ class ProductDataFactory extends Factory
                 'syncTs' => now(),
                 'updatedAt' => now(),
                 'price' => 100.50,
+                'eshopPrice' => 101.50,
                 'priceUpdated' => now(),
             ]
         );
