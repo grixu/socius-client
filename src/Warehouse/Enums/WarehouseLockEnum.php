@@ -16,11 +16,11 @@ class WarehouseLockEnum extends Enum
     protected static function values(): array
     {
         return [
-            'UNLOCKED' => 'Domain\\Warehouse\\States\\WarehouseUnlocked',
-            'MANUALLY' => 'Domain\\Warehouse\\States\\WarehouseLockedManually',
-            'COUNTING' => 'Domain\\Warehouse\\States\\WarehouseLockedStockCountingPartial',
-            'COUNTING_FULL' => 'Domain\\Warehouse\\States\\WarehouseLockedStockCountingFull',
-            'DEPRECATION' => 'Domain\\Warehouse\\States\\WarehouseLockedDepreciation',
+            'UNLOCKED' => '0',
+            'STOCKTAKING_TOTAL' => '1',
+            'STOCKTAKING_PARTIAL' => '2',
+            'DEPRECIATION' => '11',
+            'MANUALLY' => '21',
         ];
     }
 }
