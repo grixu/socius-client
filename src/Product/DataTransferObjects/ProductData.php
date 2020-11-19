@@ -55,6 +55,8 @@ class ProductData extends DataTransferObject
 
     public ?int $flags;
 
+    public ?int $simplyLeaseCategory;
+
     public ?ProductTypeData $productType;
 
     public ?BrandData $brand;
