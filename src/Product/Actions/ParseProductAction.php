@@ -61,6 +61,7 @@ class ParseProductAction
             'archived' => (bool)$item['archived'],
             'blocked' => (bool)$item['archived'],
             'flags' => !empty($item['flags']) ? (int)$item['flags'] : null,
+            'simplyLeaseCategory' => !empty($item['simply_lease_category']) ? (int)$item['simply_lease_category'] : null,
             'price' => !empty($item['price']) ? (float)$item['price'] : null,
             'eshopPrice' => !empty($item['eshop_price']) ? (float)$item['eshop_price'] : null,
             'priceUpdated' => Carbon::make($item['price_updated']),
