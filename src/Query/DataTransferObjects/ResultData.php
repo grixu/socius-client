@@ -15,7 +15,7 @@ class ResultData extends DataTransferObject
     public int $lastPage;
     public int $perPage;
     public int $total;
-    public int $from;
-    public int $to;
+    public ?int $from;
+    public ?int $to;
     public ?string $nextPageUrl;
 }
