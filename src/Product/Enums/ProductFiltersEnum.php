@@ -15,6 +15,7 @@ use Spatie\Enum\Laravel\Enum;
  * @method static self availability()
  * @method static self attachments()
  * @method static self price()
+ * @method static self simply_lease_category()
  */
 final class ProductFiltersEnum extends Enum
 {
