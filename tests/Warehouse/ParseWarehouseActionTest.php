@@ -27,13 +27,8 @@ class ParseWarehouseActionTest extends TestCase
         return [SociusClientServiceProvider::class];
     }
 
-    /**
-     * Test standard workflow
-     *
-     * @return void
-     * @test
-     */
-    public function simple_case()
+    /** @test */
+    public function normal_pass()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.warehouse'));
         $result = $this->action->execute($data);
@@ -42,12 +37,7 @@ class ParseWarehouseActionTest extends TestCase
         $this->assertNotEmpty($result);
     }
 
-    /**
-     * Test with included operator relationship data
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_operator_included()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.warehouse') . '?include=operator');
@@ -57,12 +47,7 @@ class ParseWarehouseActionTest extends TestCase
         $this->assertNotEmpty($result);
     }
 
-    /**
-     * Test with included customer relationship data
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_customer_included()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.warehouse') . '?include=customer');
@@ -72,12 +57,7 @@ class ParseWarehouseActionTest extends TestCase
         $this->assertNotEmpty($result);
     }
 
-    /**
-     * Test with included stocks relationship data
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_stocks_included()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.warehouse') . '?include=stocks');

@@ -27,13 +27,8 @@ class ParseDescriptionActionTest extends TestCase
         return [SociusClientServiceProvider::class];
     }
 
-    /**
-     * Test standard workflow
-     *
-     * @return void
-     * @test
-     */
-    public function simple_case()
+    /** @test */
+    public function normal_pass()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.description'));
         $result = $this->action->execute($data);
@@ -42,12 +37,7 @@ class ParseDescriptionActionTest extends TestCase
         $this->assertNotEmpty($result);
     }
 
-    /**
-     * Test with language included
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_language_included()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.description') . '?include=language');
@@ -57,12 +47,7 @@ class ParseDescriptionActionTest extends TestCase
         $this->assertNotEmpty($result);
     }
 
-    /**
-     * Test with product included
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_product_included()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.description') . '?include=product');

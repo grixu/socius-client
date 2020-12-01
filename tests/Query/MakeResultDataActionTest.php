@@ -34,13 +34,8 @@ class MakeResultDataActionTest extends TestCase
         return [SociusClientServiceProvider::class];
     }
 
-    /**
-     * Check basic scenario
-     *
-     * @return void
-     * @test
-     */
-    public function action_basic()
+    /** @test */
+    public function normal_pass()
     {
         $result = $this->action->execute($this->httpResponse);
 
@@ -54,26 +49,16 @@ class MakeResultDataActionTest extends TestCase
         $this->assertNotEmpty($result->total);
     }
 
-    /**
-     * Test action when empty array will be pass as arg.
-     *
-     * @return void
-     * @test
-     */
-    public function action_with_empty_response_data()
+    /** @test */
+    public function with_empty_response_data()
     {
         $result = $this->action->execute([]);
 
         $this->assertNull($result);
     }
 
-    /**
-     * Test action with broken response data
-     *
-     * @return void
-     * @test
-     */
-    public function action_with_broken_response_data()
+    /** @test */
+    public function with_broken_response_data()
     {
         $result = $this->action->execute(
             [

@@ -28,13 +28,8 @@ class ConvertToLanguageDataActionTest extends TestCase
         return [SociusClientServiceProvider::class];
     }
 
-    /**
-     * Test standard workflow
-     *
-     * @return void
-     * @test
-     */
-    public function simple_case()
+    /** @test */
+    public function normal_pass()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.language'));
         $result = $this->action->execute($data);

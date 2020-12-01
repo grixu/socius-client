@@ -28,13 +28,8 @@ class ConvertToBrandDataActionTest extends TestCase
         return [SociusClientServiceProvider::class];
     }
 
-    /**
-     * Test standard workflow
-     *
-     * @return void
-     * @test
-     */
-    public function simple_case()
+    /** @test */
+    public function normal_pass()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.brand'));
         $result = $this->action->execute($data);
@@ -43,12 +38,7 @@ class ConvertToBrandDataActionTest extends TestCase
         $this->assertEquals(BrandDataCollection::class, get_class($result));
     }
 
-    /**
-     * Test with products included
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_products_included()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.brand') . '?include=products');

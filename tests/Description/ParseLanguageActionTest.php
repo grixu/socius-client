@@ -27,13 +27,8 @@ class ParseLanguageActionTest extends TestCase
         return [SociusClientServiceProvider::class];
     }
 
-    /**
-     * Test standard workflow
-     *
-     * @return void
-     * @test
-     */
-    public function simple_case()
+    /** @test */
+    public function normal_pass()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.language'));
         $result = $this->action->execute($data);

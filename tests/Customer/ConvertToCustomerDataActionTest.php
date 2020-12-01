@@ -28,13 +28,8 @@ class ConvertToCustomerDataActionTest extends TestCase
         return [SociusClientServiceProvider::class];
     }
 
-    /**
-     * Test standard workflow
-     *
-     * @return void
-     * @test
-     */
-    public function simple_case()
+    /** @test */
+    public function normal_pass()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.customer'));
         $result = $this->action->execute($data);
@@ -43,12 +38,7 @@ class ConvertToCustomerDataActionTest extends TestCase
         $this->assertEquals(CustomerDataCollection::class, get_class($result));
     }
 
-    /**
-     * Test standard workflow
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_operator_included()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.customer') . '?include=operator');

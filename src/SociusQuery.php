@@ -330,6 +330,16 @@ class SociusQuery
         return $this;
     }
 
+    public function getUrl(int $page = null): string
+    {
+        // If page param is set then add it to QueryString, otherwise do not
+        if ($page !== null) {
+            $this->query->page = $page;
+        }
+
+        return $this->baseUrl . $this->prepareQueryAction->execute($this->query);
+    }
+
     /**
      * @param int|null $page
      * @return $this
@@ -338,15 +348,10 @@ class SociusQuery
      */
     public function fetch(int $page = null): self
     {
-        // If page param is set then add it to QueryString, otherwise do not
-        if ($page !== null) {
-            $this->query->page = $page;
-        }
-
-        $finalUrl = $this->baseUrl . $this->prepareQueryAction->execute($this->query);
-
         // Make first (or only in when $page is not null) API Call
-        $results = $this->callApiAction->execute($finalUrl);
+        $results = $this->callApiAction->execute(
+            $this->getUrl($page)
+        );
         $this->rawResults = $this->makeResultDataAction->execute($results);
 
         if ($page === null) {

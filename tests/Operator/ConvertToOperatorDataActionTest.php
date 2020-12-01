@@ -28,13 +28,8 @@ class ConvertToOperatorDataActionTest extends TestCase
         return [SociusClientServiceProvider::class];
     }
 
-    /**
-     * Test standard workflow
-     *
-     * @return void
-     * @test
-     */
-    public function simple_case()
+    /** @test */
+    public function normal_pass()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.operator'));
         $result = $this->action->execute($data);
@@ -43,12 +38,7 @@ class ConvertToOperatorDataActionTest extends TestCase
         $this->assertEquals(OperatorDataCollection::class, get_class($result));
     }
 
-    /**
-     * Test standard workflow
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_role_included()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.operator') . '?include=role');
@@ -58,12 +48,7 @@ class ConvertToOperatorDataActionTest extends TestCase
         $this->assertEquals(OperatorDataCollection::class, get_class($result));
     }
 
-    /**
-     * Test standard workflow
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_customers_included()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.operator') . '?include=customers');
@@ -73,12 +58,7 @@ class ConvertToOperatorDataActionTest extends TestCase
         $this->assertEquals(OperatorDataCollection::class, get_class($result));
     }
 
-    /**
-     * Test standard workflow
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_branches_included()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.operator') . '?include=branches');

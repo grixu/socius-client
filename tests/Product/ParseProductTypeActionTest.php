@@ -27,13 +27,8 @@ class ParseProductTypeActionTest extends TestCase
         return [SociusClientServiceProvider::class];
     }
 
-    /**
-     * Test standard workflow
-     *
-     * @return void
-     * @test
-     */
-    public function simple_case()
+    /** @test */
+    public function normal_pass()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.product_type'));
         $result = $this->action->execute($data);
@@ -42,12 +37,7 @@ class ParseProductTypeActionTest extends TestCase
         $this->assertNotEmpty($result);
     }
 
-    /**
-     * Test with products relationship data included
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_products_included()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.product_type') . '?include=products');

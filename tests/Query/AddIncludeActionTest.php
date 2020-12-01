@@ -26,14 +26,8 @@ class AddIncludeActionTest extends TestCase
         $this->queryData = RequestQueryDataFactory::new()->create();
     }
 
-    /**
-     * Check how action reacts with proper filters
-     * Should return bigger array with filters
-     *
-     * @return void
-     * @test
-     */
-    public function with_proper_includes()
+    /** @test */
+    public function normal_pass()
     {
         $includes = ['stocks', 'descriptions'];
 
@@ -43,13 +37,7 @@ class AddIncludeActionTest extends TestCase
         $this->assertNotSameSize($this->queryData->includes, $result->includes);
     }
 
-    /**
-     * Check how action reacts when one of includes is wrong
-     * Should return untouched array
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_wrong_includes()
     {
         $includes = ['name', 'show'];
@@ -60,14 +48,8 @@ class AddIncludeActionTest extends TestCase
         $this->assertSameSize($this->queryData->includes, $result->includes);
     }
 
-    /**
-     * Check how action reacts with proper but already added filter
-     * Should return touched array but with unique records only
-     *
-     * @return void
-     * @test
-     */
-    public function with_the_same_includes()
+    /** @test */
+    public function with_identical_includes()
     {
         $includes = ['brand'];
 
@@ -77,12 +59,7 @@ class AddIncludeActionTest extends TestCase
         $this->assertSameSize($this->queryData->includes, $result->includes);
     }
 
-    /**
-     * Checking it's possible be added first element at empty RequestQueryData
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_empty_query()
     {
         $includes = ['brand'];

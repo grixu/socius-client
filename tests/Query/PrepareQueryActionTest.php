@@ -23,13 +23,8 @@ class PrepareQueryActionTest extends TestCase
         $this->action = new PrepareQueryAction();
     }
 
-    /**
-     * A basic test - normal condition, work with proper data
-     *
-     * @return void
-     * @test
-     */
-    public function query_preparation()
+    /** @test */
+    public function normal_pass()
     {
         $queryData = RequestQueryDataFactory::new()->create();
 
@@ -46,13 +41,8 @@ class PrepareQueryActionTest extends TestCase
         $this->assertStringContainsString('sort='.$sortName, $result);
     }
 
-    /**
-     * A basic test with set page
-     *
-     * @return void
-     * @test
-     */
-    public function query_preparation_with_page()
+    /** @test */
+    public function with_page()
     {
         $queryData = RequestQueryDataFactory::new()->create(['page' => 2]);
 
@@ -71,13 +61,8 @@ class PrepareQueryActionTest extends TestCase
         $this->assertStringContainsString('page=2', $result);
     }
 
-    /**
-     * Test how action reacts when no sorts will be passed
-     *
-     * @return void
-     * @test
-     */
-    public function query_without_sort()
+    /** @test */
+    public function without_sorts()
     {
         $queryData = new RequestQueryData(
             [
@@ -100,13 +85,8 @@ class PrepareQueryActionTest extends TestCase
         $this->assertStringContainsString('include='.$includeName, $result);
     }
 
-    /**
-     * Test how action reacts when no includes will be passed
-     *
-     * @return void
-     * @test
-     */
-    public function query_without_includes()
+    /** @test */
+    public function without_includes()
     {
         $queryData = new RequestQueryData(
             [
