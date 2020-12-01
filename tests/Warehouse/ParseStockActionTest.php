@@ -27,13 +27,8 @@ class ParseStockActionTest extends TestCase
         return [SociusClientServiceProvider::class];
     }
 
-    /**
-     * Test standard workflow
-     *
-     * @return void
-     * @test
-     */
-    public function simple_case()
+    /** @test */
+    public function normal_pass()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.stock'));
         $result = $this->action->execute($data);
@@ -42,12 +37,7 @@ class ParseStockActionTest extends TestCase
         $this->assertNotEmpty($result);
     }
 
-    /**
-     * Test with included product relationship data
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_product_included()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.stock') . '?include=product');
@@ -57,12 +47,7 @@ class ParseStockActionTest extends TestCase
         $this->assertNotEmpty($result);
     }
 
-    /**
-     * Test with included warehouse relationship data
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_warehouse_included()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.stock') . '?include=warehouse');

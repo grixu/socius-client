@@ -28,13 +28,8 @@ class ConvertToStockDataActionTest extends TestCase
         return [SociusClientServiceProvider::class];
     }
 
-    /**
-     * Test standard workflow
-     *
-     * @return void
-     * @test
-     */
-    public function simple_case()
+    /** @test */
+    public function normal_pass()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.stock'));
         $result = $this->action->execute($data);
@@ -43,12 +38,7 @@ class ConvertToStockDataActionTest extends TestCase
         $this->assertEquals(StockDataCollection::class, get_class($result));
     }
 
-    /**
-     * Test with included product relationship data
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_product_included()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.stock') . '?included=product');
@@ -58,12 +48,7 @@ class ConvertToStockDataActionTest extends TestCase
         $this->assertEquals(StockDataCollection::class, get_class($result));
     }
 
-    /**
-     * Test with included warehouse relationship data
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_warehouse_included()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.stock') . '?included=warehouse');
