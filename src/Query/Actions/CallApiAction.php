@@ -2,6 +2,7 @@
 
 namespace Grixu\SociusClient\Query\Actions;
 
+use Grixu\SociusClient\Query\Exceptions\AccessDeniedException;
 use Grixu\SociusClient\Query\Exceptions\ApiCallException;
 use Grixu\SociusClient\Query\Exceptions\WrongConfigException;
 use Illuminate\Support\Facades\Http;
@@ -28,6 +29,7 @@ class CallApiAction
      * @throws \Grixu\SociusClient\Query\Exceptions\ApiCallException
      * @throws \Grixu\SociusClient\Query\Exceptions\WrongConfigException
      * @throws \Grixu\SociusClient\Query\Exceptions\TokenIssueException
+     * @throws \Grixu\SociusClient\Query\Exceptions\AccessDeniedException
      */
     public function execute(string $url)
     {
@@ -57,6 +59,10 @@ class CallApiAction
                 $resetTokenAction->execute();
                 // Token refreshed, then try again
                 return $this->execute($url);
+            }
+
+            if ($client->status() == 403) {
+                throw new AccessDeniedException($client->body());
             }
         }
 
