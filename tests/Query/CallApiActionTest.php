@@ -3,6 +3,7 @@
 namespace Grixu\SociusClient\Tests\Query;
 
 use Grixu\SociusClient\Query\Actions\CallApiAction;
+use Grixu\SociusClient\Query\Exceptions\AccessDeniedException;
 use Grixu\SociusClient\Query\Exceptions\ApiCallException;
 use Grixu\SociusClient\Query\Exceptions\TokenIssueException;
 use Grixu\SociusClient\Query\Exceptions\WrongConfigException;
@@ -37,15 +38,8 @@ class CallApiActionTest extends TestCase
         $app->config->set('socius-client.base_url', '');
     }
 
-    /**
-     * Test how action make api call
-     *
-     * @return void
-     * @throws \Grixu\SociusClient\Query\Exceptions\ApiCallException
-     * @throws \Grixu\SociusClient\Query\Exceptions\TokenIssueException
-     * @test
-     */
-    public function api_call()
+    /** @test */
+    public function normal_pass()
     {
         $result = $this->action->execute($this->url);
 
@@ -60,14 +54,8 @@ class CallApiActionTest extends TestCase
         $this->assertArrayHasKey('data', $result['data']);
     }
 
-    /**
-     * Check how action handle HTTP error
-     *
-     * @return void
-     * @test
-     * @throws \Grixu\SociusClient\Query\Exceptions\WrongConfigException
-     */
-    public function api_call_with_http_error()
+    /** @test */
+    public function with_http_error()
     {
         Http::fake(
             [
@@ -84,14 +72,8 @@ class CallApiActionTest extends TestCase
         }
     }
 
-    /**
-     * Check how action handle revalidating token
-     *
-     * @return void
-     * @test
-     * @throws \Grixu\SociusClient\Query\Exceptions\WrongConfigException
-     */
-    public function with_http_error()
+    /** @test */
+    public function with_token_revalidation()
     {
         Http::fake(
             [
@@ -126,9 +108,6 @@ class CallApiActionTest extends TestCase
     }
 
     /**
-     * Test reaction when lacks one of config params
-     *
-     * @return void
      * @test
      * @environment-setup useClearConfig
      */
@@ -142,6 +121,26 @@ class CallApiActionTest extends TestCase
         } catch (TokenIssueException $e) {
             $this->assertTrue(false);
         } catch (WrongConfigException $e) {
+            $this->assertTrue(true);
+        }
+    }
+
+    /** @test */
+    public function with_access_denied()
+    {
+        Http::fake(
+            [
+                '*' => Http::response('Access Denied', 403)
+            ]
+        );
+
+        try {
+            $this->action->execute($this->url);
+        } catch (ApiCallException $e) {
+            $this->assertTrue(false);
+        } catch (TokenIssueException $e) {
+            $this->assertTrue(false);
+        } catch (AccessDeniedException $e) {
             $this->assertTrue(true);
         }
     }

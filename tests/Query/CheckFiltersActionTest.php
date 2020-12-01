@@ -22,12 +22,7 @@ class CheckFiltersActionTest extends TestCase
         $this->action = new CheckFiltersAction();
     }
 
-    /**
-     * Test how action will work with all proper filters
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_proper_params()
     {
         $arrData = [
@@ -52,12 +47,7 @@ class CheckFiltersActionTest extends TestCase
         $this->assertEquals(true, $result);
     }
 
-    /**
-     * Check how action react when one of filter is wrong
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_wrong_params()
     {
         $arrData = [

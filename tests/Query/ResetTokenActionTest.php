@@ -26,13 +26,8 @@ class ResetTokenActionTest extends TestCase
         return [SociusClientServiceProvider::class];
     }
 
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     * @test
-     */
-    public function getting_token()
+    /** @test */
+    public function normal_pass()
     {
         $result = $this->action->execute();
 
@@ -40,12 +35,7 @@ class ResetTokenActionTest extends TestCase
         $this->assertIsString($result);
     }
 
-    /**
-     * Look how action handle HTTP error
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_http_error()
     {
         $result = $this->action->execute();

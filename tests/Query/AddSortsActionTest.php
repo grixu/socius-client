@@ -26,14 +26,8 @@ class AddSortsActionTest extends TestCase
         $this->queryData = RequestQueryDataFactory::new()->create();
     }
 
-    /**
-     * Check how action reacts with proper sorts
-     * Should return bigger array with sorts
-     *
-     * @return void
-     * @test
-     */
-    public function with_proper_sorts()
+    /** @test */
+    public function normal_pass()
     {
         $sorts = ['name', 'price'];
 
@@ -43,13 +37,7 @@ class AddSortsActionTest extends TestCase
         $this->assertNotSameSize($this->queryData->sorts, $result->sorts);
     }
 
-    /**
-     * Check how action reacts when one of sorts is wrong
-     * Should return untouched array
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_wrong_sorts()
     {
         $sorts = ['name', 'show'];
@@ -60,14 +48,8 @@ class AddSortsActionTest extends TestCase
         $this->assertSameSize($this->queryData->sorts, $result->sorts);
     }
 
-    /**
-     * Check how action reacts with proper but already added filter
-     * Should return touched array but with unique records only
-     *
-     * @return void
-     * @test
-     */
-    public function with_the_same_sorts()
+    /** @test */
+    public function with_identical_sorts()
     {
         $sorts = ['index'];
 
@@ -77,12 +59,7 @@ class AddSortsActionTest extends TestCase
         $this->assertSameSize($this->queryData->sorts, $result->sorts);
     }
 
-    /**
-     * Checking it's possible be added first element at empty RequestQueryData
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_empty_query()
     {
         $sorts = ['index'];

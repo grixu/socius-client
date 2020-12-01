@@ -21,13 +21,8 @@ class CheckParamsArrayActionTest extends TestCase
         $this->action = new CheckParamArrayAction();
     }
 
-    /**
-     * Test how action will work with all proper filters
-     *
-     * @return void
-     * @test
-     */
-    public function with_proper_params()
+    /** @test */
+    public function normal_pass()
     {
         $arrFilters = ['name', 'ean'];
 
@@ -36,12 +31,7 @@ class CheckParamsArrayActionTest extends TestCase
         $this->assertEquals(true, $result);
     }
 
-    /**
-     * Check how action react when one of filter is wrong
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_wrong_params()
     {
         $arrFilters = ['name', 'lol'];

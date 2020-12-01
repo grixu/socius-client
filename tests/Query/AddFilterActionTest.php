@@ -27,14 +27,8 @@ class AddFilterActionTest extends TestCase
         $this->queryData = RequestQueryDataFactory::new()->create();
     }
 
-    /**
-     * Check how action reacts with proper filters
-     * Should return bigger array with filters
-     *
-     * @return void
-     * @test
-     */
-    public function with_proper_filters()
+    /** @test */
+    public function normal_pass()
     {
         $arrData = [
             [
@@ -59,13 +53,7 @@ class AddFilterActionTest extends TestCase
         $this->assertNotSameSize($this->queryData->filters, $result->filters);
     }
 
-    /**
-     * Check how action reacts when one of filters is wrong
-     * Should return untouched array
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_wrong_filters()
     {
         $arrData = [
@@ -91,14 +79,8 @@ class AddFilterActionTest extends TestCase
         $this->assertSameSize($this->queryData->filters, $result->filters);
     }
 
-    /**
-     * Check how action reacts with proper but already added filter
-     * Should return touched array but with unique records only
-     *
-     * @return void
-     * @test
-     */
-    public function with_the_same_filters()
+    /** @test */
+    public function with_identical_filters()
     {
         $arrData = [
             [
@@ -117,12 +99,7 @@ class AddFilterActionTest extends TestCase
         $this->assertSameSize($this->queryData->filters, $result->filters);
     }
 
-    /**
-     * Checking it's possible be added first element at empty RequestQueryData
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_empty_query()
     {
         $arrData = [
