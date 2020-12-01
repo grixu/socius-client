@@ -17,6 +17,9 @@ use Spatie\Enum\Laravel\Enum;
  * @method static self phone2()
  * @method static self email()
  * @method static self operator_id()
+ * @method static self synced_before()
+ * @method static self synced_between()
+ * @method static self synced_after()
  */
 class CustomerFiltersEnum extends Enum
 {

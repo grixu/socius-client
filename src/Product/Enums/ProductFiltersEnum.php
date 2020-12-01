@@ -15,7 +15,13 @@ use Spatie\Enum\Laravel\Enum;
  * @method static self availability()
  * @method static self attachments()
  * @method static self price()
- * @method static self simply_lease_category()
+ * @method static self price_lower()
+ * @method static self price_greater()
+ * @method static self synced_before()
+ * @method static self synced_between()
+ * @method static self synced_after()
+ * @method static self is_null()
+ * @method static self not_null()
  */
 final class ProductFiltersEnum extends Enum
 {
