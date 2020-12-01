@@ -27,13 +27,8 @@ class ParseOperatorActionTest extends TestCase
         return [SociusClientServiceProvider::class];
     }
 
-    /**
-     * Test standard workflow
-     *
-     * @return void
-     * @test
-     */
-    public function test_simple_case()
+    /** @test */
+    public function normal_pass()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.operator'));
         $result = $this->action->execute($data);
@@ -42,13 +37,8 @@ class ParseOperatorActionTest extends TestCase
         $this->assertNotEmpty($result);
     }
 
-    /**
-     * Test with role included
-     *
-     * @return void
-     * @test
-     */
-    public function test_with_role_included()
+    /** @test */
+    public function with_role_included()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.operator') . '?include=role');
         $result = $this->action->execute($data);
@@ -57,13 +47,8 @@ class ParseOperatorActionTest extends TestCase
         $this->assertNotEmpty($result);
     }
 
-    /**
-     * Test standard with customers included
-     *
-     * @return void
-     * @test
-     */
-    public function test_with_customers_included()
+    /** @test */
+    public function with_customers_included()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.operator') . '?include=customers');
         $result = $this->action->execute($data);
@@ -72,13 +57,8 @@ class ParseOperatorActionTest extends TestCase
         $this->assertNotEmpty($result);
     }
 
-    /**
-     * Test standard with branches included
-     *
-     * @return void
-     * @test
-     */
-    public function test_with_branches_included()
+    /** @test */
+    public function with_branches_included()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.operator') . '?include=branches');
         $result = $this->action->execute($data);

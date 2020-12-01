@@ -28,13 +28,8 @@ class ConvertToBranchDataActionTest extends TestCase
         return [SociusClientServiceProvider::class];
     }
 
-    /**
-     * Test standard workflow
-     *
-     * @return void
-     * @test
-     */
-    public function simple_case()
+    /** @test */
+    public function normal_pass()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.branch'));
         $result = $this->action->execute($data);
@@ -43,12 +38,7 @@ class ConvertToBranchDataActionTest extends TestCase
         $this->assertEquals(BranchDataCollection::class, get_class($result));
     }
 
-    /**
-     * Test with operators included
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_operators_included()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.branch') . '?include=operators');
