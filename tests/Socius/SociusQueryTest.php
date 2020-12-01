@@ -40,12 +40,7 @@ class SociusQueryTest extends TestCase
         return [SociusClientServiceProvider::class];
     }
 
-    /**
-     * A basic test - normal condition, checking all private methods used in constructor
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function constructor()
     {
         $this->assertEquals(AddFilterAction::class, get_class($this->query->getAddFilterAction()));
@@ -70,12 +65,7 @@ class SociusQueryTest extends TestCase
         $this->assertStringContainsString('Product', $this->query->getDomainIncludesEnum());
     }
 
-    /**
-     * Check proper adding filter
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function add_filter()
     {
         $this->query->addFilter('name', 'SZKLO');
@@ -83,12 +73,7 @@ class SociusQueryTest extends TestCase
         $this->assertNotEmpty($this->query->getQuery()->filters);
     }
 
-    /**
-     * Check reaction on improper filter added
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function add_wrong_filter()
     {
         $this->query->addFilter('queue', 'dupa');
@@ -96,12 +81,7 @@ class SociusQueryTest extends TestCase
         $this->assertEmpty($this->query->getQuery()->filters);
     }
 
-    /**
-     * Test how react on duplicate filter
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function duplicate_filters()
     {
         $this->query->addFilter('name', 'SZKLO');
@@ -111,12 +91,7 @@ class SociusQueryTest extends TestCase
         $this->assertCount(1, $this->query->getQuery()->filters);
     }
 
-    /**
-     * Check normal sort adding
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function add_sort()
     {
         $this->query->addSort('name');
@@ -124,12 +99,7 @@ class SociusQueryTest extends TestCase
         $this->assertNotEmpty($this->query->getQuery()->sorts);
     }
 
-    /**
-     * Check reaction on wrong sort adding
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function add_wrong_sort()
     {
         $this->query->addSort('queue');
@@ -137,12 +107,7 @@ class SociusQueryTest extends TestCase
         $this->assertEmpty($this->query->getQuery()->sorts);
     }
 
-    /**
-     * Check reaction on duplicating sort
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function duplicate_sort()
     {
         $this->query->addSort('name');
@@ -152,12 +117,7 @@ class SociusQueryTest extends TestCase
         $this->assertCount(1, $this->query->getQuery()->sorts);
     }
 
-    /**
-     * Adding include proper way
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function add_include()
     {
         $this->query->addInclude('brand');
@@ -165,12 +125,7 @@ class SociusQueryTest extends TestCase
         $this->assertNotEmpty($this->query->getQuery()->includes);
     }
 
-    /**
-     * Adding wrong improper include
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function add_wrong_include()
     {
         $this->query->addInclude('queue');
@@ -178,12 +133,7 @@ class SociusQueryTest extends TestCase
         $this->assertEmpty($this->query->getQuery()->includes);
     }
 
-    /**
-     * Checking how it would react on duplicating include
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function duplicate_include()
     {
         $this->query->addInclude('brand');
@@ -193,14 +143,7 @@ class SociusQueryTest extends TestCase
         $this->assertCount(1, $this->query->getQuery()->includes);
     }
 
-    /**
-     * A basic fetch test
-     *
-     * @return void
-     * @throws \Grixu\SociusClient\Query\Exceptions\ApiCallException
-     * @throws \Grixu\SociusClient\Query\Exceptions\TokenIssueException
-     * @test
-     */
+    /** @test */
     public function fetch()
     {
         $this->query->fetch(1);
@@ -210,14 +153,7 @@ class SociusQueryTest extends TestCase
         $this->assertEquals(ProductDataCollection::class, get_class($this->query->getResults()));
     }
 
-    /**
-     * Test with Fake HTTP error on API Call (not Token get)
-     *
-     * @return void
-     * @throws \Grixu\SociusClient\Query\Exceptions\ApiCallException
-     * @throws \Grixu\SociusClient\Query\Exceptions\TokenIssueException
-     * @test
-     */
+    /** @test */
     public function fetch_with_http_error()
     {
         Cache::forget('socius-token');
@@ -244,14 +180,7 @@ class SociusQueryTest extends TestCase
         }
     }
 
-    /**
-     * Test with HTTP Error on token get
-     *
-     * @return void
-     * @throws \Grixu\SociusClient\Query\Exceptions\ApiCallException
-     * @throws \Grixu\SociusClient\Query\Exceptions\TokenIssueException
-     * @test
-     */
+    /** @test */
     public function with_token_error()
     {
         Cache::forget('socius-token');
@@ -271,14 +200,7 @@ class SociusQueryTest extends TestCase
         }
     }
 
-    /**
-     * Check how would token revalidation would work
-     *
-     * @return void
-     * @throws ApiCallException
-     * @throws TokenIssueException
-     * @test
-     */
+    /** @test */
     public function fetch_with_token_refresh()
     {
         // First time normal HTTP query, everything just fine. Token now in Cache

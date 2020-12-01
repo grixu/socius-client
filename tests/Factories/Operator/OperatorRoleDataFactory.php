@@ -11,18 +11,11 @@ use Grixu\SociusClient\Support\Tests\Factory;
  */
 class OperatorRoleDataFactory extends Factory
 {
-    /**
-     * @return OperatorRoleDataFactory
-     */
     public static function new(): OperatorRoleDataFactory
     {
         return new self();
     }
 
-    /**
-     * @param array $parameters
-     * @return OperatorRoleData
-     */
     public function create(array $parameters = []): OperatorRoleData
     {
         return new OperatorRoleData(

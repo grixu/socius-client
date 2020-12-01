@@ -11,18 +11,11 @@ use Grixu\SociusClient\Support\Tests\Factory;
  */
 class FilterDataFactory extends Factory
 {
-    /**
-     * @return FilterDataFactory
-     */
     public static function new(): FilterDataFactory
     {
         return new self();
     }
 
-    /**
-     * @param array $parameters
-     * @return FilterData
-     */
     public function create(array $parameters = []): FilterData
     {
         return new FilterData(

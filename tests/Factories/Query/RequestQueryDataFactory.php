@@ -12,18 +12,11 @@ use Grixu\SociusClient\Support\Tests\Factory;
  */
 class RequestQueryDataFactory extends Factory
 {
-    /**
-     * @return RequestQueryDataFactory
-     */
     public static function new(): RequestQueryDataFactory
     {
         return new self();
     }
 
-    /**
-     * @param array $parameters
-     * @return RequestQueryData
-     */
     public function create(array $parameters = []): RequestQueryData
     {
         return new RequestQueryData(

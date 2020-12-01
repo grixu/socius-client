@@ -11,18 +11,11 @@ use Grixu\SociusClient\Support\Tests\Factory;
  */
 class LanguageDataFactory extends Factory
 {
-    /**
-     * @return LanguageDataFactory
-     */
     public static function new(): LanguageDataFactory
     {
         return new self();
     }
 
-    /**
-     * @param array $parameters
-     * @return LanguageData
-     */
     public function create(array $parameters = []): LanguageData
     {
         return new LanguageData(
