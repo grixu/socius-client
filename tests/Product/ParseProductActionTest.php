@@ -27,13 +27,8 @@ class ParseProductActionTest extends TestCase
         return [SociusClientServiceProvider::class];
     }
 
-    /**
-     * Test standard workflow
-     *
-     * @return void
-     * @test
-     */
-    public function simple_case()
+    /** @test */
+    public function normal_pass()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.product'));
         $result = $this->action->execute($data);
@@ -42,12 +37,7 @@ class ParseProductActionTest extends TestCase
         $this->assertNotEmpty($result);
     }
 
-    /**
-     * Test with brand relationship data included
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_brand_included()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.product') . '?include=brand');
@@ -57,12 +47,7 @@ class ParseProductActionTest extends TestCase
         $this->assertNotEmpty($result);
     }
 
-    /**
-     * Test with product type relationship data included
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_product_type_included()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.product') . '?include=productType');
@@ -72,12 +57,7 @@ class ParseProductActionTest extends TestCase
         $this->assertNotEmpty($result);
     }
 
-    /**
-     * Test with stocks relationship data included
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_stocks_included()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.product') . '?include=stocks');
@@ -87,12 +67,7 @@ class ParseProductActionTest extends TestCase
         $this->assertNotEmpty($result);
     }
 
-    /**
-     * Test with descriptions relationship data included
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_descriptions_included()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.product') . '?include=descriptions');

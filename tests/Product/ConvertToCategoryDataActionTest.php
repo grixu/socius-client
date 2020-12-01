@@ -28,13 +28,8 @@ class ConvertToCategoryDataActionTest extends TestCase
         return [SociusClientServiceProvider::class];
     }
 
-    /**
-     * Test standard workflow
-     *
-     * @return void
-     * @test
-     */
-    public function simple_case()
+    /** @test */
+    public function normal_pass()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.category'));
         $result = $this->action->execute($data);
@@ -43,12 +38,7 @@ class ConvertToCategoryDataActionTest extends TestCase
         $this->assertEquals(CategoryDataCollection::class, get_class($result));
     }
 
-    /**
-     * Test with included parent category relationship
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_parent_included()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.category') . '?include=parent');
@@ -58,12 +48,7 @@ class ConvertToCategoryDataActionTest extends TestCase
         $this->assertEquals(CategoryDataCollection::class, get_class($result));
     }
 
-    /**
-     * Test with included children relationship
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_children_included()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.category') . '?include=children');

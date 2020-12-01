@@ -28,13 +28,8 @@ class ConvertToProductDataActionTest extends TestCase
         return [SociusClientServiceProvider::class];
     }
 
-    /**
-     * Test standard workflow
-     *
-     * @return void
-     * @test
-     */
-    public function simple_case()
+    /** @test */
+    public function normal_pass()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.product'));
         $result = $this->action->execute($data);
@@ -43,12 +38,7 @@ class ConvertToProductDataActionTest extends TestCase
         $this->assertEquals(ProductDataCollection::class, get_class($result));
     }
 
-    /**
-     * Test with brand relationship data included
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_brand_included()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.product') . '?include=brand');
@@ -58,12 +48,7 @@ class ConvertToProductDataActionTest extends TestCase
         $this->assertEquals(ProductDataCollection::class, get_class($result));
     }
 
-    /**
-     * Test with productType relationship data included
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_product_included()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.product') . '?include=productType');
@@ -73,12 +58,7 @@ class ConvertToProductDataActionTest extends TestCase
         $this->assertEquals(ProductDataCollection::class, get_class($result));
     }
 
-    /**
-     * Test with stocks relationship data included
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_stocks_included()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.product') . '?include=stocks');
@@ -88,12 +68,7 @@ class ConvertToProductDataActionTest extends TestCase
         $this->assertEquals(ProductDataCollection::class, get_class($result));
     }
 
-    /**
-     * Test with products relationship data included
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_descriptions_included()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.product') . '?include=descriptions');

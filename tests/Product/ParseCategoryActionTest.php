@@ -27,13 +27,8 @@ class ParseCategoryActionTest extends TestCase
         return [SociusClientServiceProvider::class];
     }
 
-    /**
-     * Test standard workflow
-     *
-     * @return void
-     * @test
-     */
-    public function simple_case()
+    /** @test */
+    public function normal_pass()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.category'));
         $result = $this->action->execute($data);
@@ -42,12 +37,7 @@ class ParseCategoryActionTest extends TestCase
         $this->assertNotEmpty($result);
     }
 
-    /**
-     * Test with included parent category relationship
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_parent_included()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.category') . '?include=parent');
@@ -57,12 +47,7 @@ class ParseCategoryActionTest extends TestCase
         $this->assertNotEmpty($result);
     }
 
-    /**
-     * Test with included children relationship
-     *
-     * @return void
-     * @test
-     */
+    /** @test */
     public function with_children_included()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.category') . '?include=children');
