@@ -9,6 +9,8 @@ use Spatie\Enum\Laravel\Enum;
  * @method static self name()
  * @method static self index()
  * @method static self ean()
+ * @method static self brand_id()
+ * @method static self product_type_id()
  * @method static self blocked()
  * @method static self archived()
  * @method static self eshop()
