@@ -2,20 +2,16 @@
 
 namespace Grixu\SociusClient\Support\Tests;
 
-use Grixu\SociusClient\Query\Actions\CallApiAction;
+use Grixu\ApiClient\ApiClient;
 use Grixu\SociusClient\Query\Actions\MakeResultDataAction;
 use Grixu\SociusClient\Query\DataTransferObjects\ResultData;
 
-/**
- * Class TestCallApi
- * @package Support\Tests
- */
 class TestCallApi
 {
     private static function makeCall($url): ResultData
     {
-        $helperAction = new CallApiAction();
-        $result = $helperAction->execute($url);
+        $helperAction = ApiClient::make('socius-client.api');
+        $result = $helperAction->call($url);
 
         $helperAction = new MakeResultDataAction();
         return $helperAction->execute($result);

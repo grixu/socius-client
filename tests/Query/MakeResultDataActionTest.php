@@ -2,7 +2,7 @@
 
 namespace Grixu\SociusClient\Tests\Query;
 
-use Grixu\SociusClient\Query\Actions\CallApiAction;
+use Grixu\ApiClient\ApiClient;
 use Grixu\SociusClient\Query\Actions\MakeResultDataAction;
 use Grixu\SociusClient\Query\DataTransferObjects\ResultData;
 use Grixu\SociusClient\SociusClientServiceProvider;
@@ -23,9 +23,9 @@ class MakeResultDataActionTest extends TestCase
 
         $this->action = new MakeResultDataAction();
 
-        $helperAction = new CallApiAction();
-        $this->httpResponse = $helperAction->execute(
-            config('socius-client.base_url') . config('socius-client.modules.product')
+        $helperAction = ApiClient::make('socius-client.api');
+        $this->httpResponse = $helperAction->call(
+            config('socius-client.modules.product')
         );
     }
 
