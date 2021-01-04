@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.2.0 - 2021-01-04
+
+- Using `grixu/api-client` instead fo CallApiAction
+- Code cleaned in tests and SociusQuery
+- Moved allowed filters, includes, sorts & parsers into config
+
 ## 1.1.1 - 2020-12-17
 
 - Add 2 new filters for Product
