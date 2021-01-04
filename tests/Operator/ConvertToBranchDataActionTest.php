@@ -8,10 +8,6 @@ use Grixu\SociusClient\SociusClientServiceProvider;
 use Grixu\SociusClient\Support\Tests\TestCallApi;
 use Orchestra\Testbench\TestCase;
 
-/**
- * Class ConvertToBranchDataTest
- * @package Grixu\SociusClient\Tests\Operator
- */
 class ConvertToBranchDataActionTest extends TestCase
 {
     private ConvertToBranchDataAction $action;
@@ -32,6 +28,11 @@ class ConvertToBranchDataActionTest extends TestCase
     public function normal_pass()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.branch'));
+        $this->checkResults($data);
+    }
+
+    protected function checkResults($data)
+    {
         $result = $this->action->execute($data);
 
         $this->assertGreaterThan(0, $result->count());
@@ -42,9 +43,6 @@ class ConvertToBranchDataActionTest extends TestCase
     public function with_operators_included()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.branch') . '?include=operators');
-        $result = $this->action->execute($data);
-
-        $this->assertGreaterThan(0, $result->count());
-        $this->assertEquals(BranchDataCollection::class, get_class($result));
+        $this->checkResults($data);
     }
 }

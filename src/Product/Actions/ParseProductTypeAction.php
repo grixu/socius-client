@@ -4,10 +4,6 @@ namespace Grixu\SociusClient\Product\Actions;
 
 use Illuminate\Support\Carbon;
 
-/**
- * Class ParseProductTypeAction
- * @package Grixu\SociusClient\Product\Actions
- */
 class ParseProductTypeAction
 {
     public function execute(array $item): array

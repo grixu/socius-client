@@ -2,12 +2,12 @@
 
 namespace Grixu\SociusClient\Tests\Helpers;
 
+use Grixu\ApiClient\CallApi;
 use Grixu\SociusClient\SociusDomainEnum;
 use Grixu\SociusClient\SociusQuery;
 use Grixu\SociusClient\Query\Actions\AddFilterAction;
 use Grixu\SociusClient\Query\Actions\AddIncludeAction;
 use Grixu\SociusClient\Query\Actions\AddSortAction;
-use Grixu\SociusClient\Query\Actions\CallApiAction;
 use Grixu\SociusClient\Query\Actions\MakeResultDataAction;
 use Grixu\SociusClient\Query\Actions\PrepareQueryAction;
 use Grixu\SociusClient\Query\DataTransferObjects\RequestQueryData;
@@ -15,10 +15,6 @@ use Grixu\SociusClient\Query\DataTransferObjects\ResultData;
 use Illuminate\Support\Collection;
 use Spatie\DataTransferObject\DataTransferObjectCollection;
 
-/**
- * Class SociusQueryHelper
- * @package Grixu\SociusClient\Tests\Helpers
- */
 class SociusQueryHelper extends SociusQuery
 {
     public function getDomain(): SociusDomainEnum
@@ -76,9 +72,9 @@ class SociusQueryHelper extends SociusQuery
         return $this->prepareQueryAction;
     }
 
-    public function getCallApiAction(): CallApiAction
+    public function getApiClient(): CallApi
     {
-        return $this->callApiAction;
+        return $this->apiClient;
     }
 
     public function getMakeResultDataAction(): MakeResultDataAction

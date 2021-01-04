@@ -7,10 +7,6 @@ use Grixu\SociusClient\Product\DataTransferObjects\ProductData;
 use Grixu\SociusClient\Warehouse\DataTransferObjects\WarehouseData;
 use Illuminate\Support\Carbon;
 
-/**
- * Class ParseStockAction
- * @package Grixu\SociusClient\Warehouse\Actions
- */
 class ParseStockAction
 {
     public function execute(array $item): array

@@ -12,9 +12,6 @@ class ConvertToCustomerDataAction
 {
     private ParseCustomerAction $customerParser;
 
-    /**
-     * ConvertToCustomerDataAction constructor.
-     */
     public function __construct()
     {
         $this->customerParser = new ParseCustomerAction();

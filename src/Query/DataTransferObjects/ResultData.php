@@ -4,10 +4,6 @@ namespace Grixu\SociusClient\Query\DataTransferObjects;
 
 use Spatie\DataTransferObject\DataTransferObject;
 
-/**
- * Class ResultData
- * @package Grixu\SociusClient\Query\DataTransferObjects
- */
 class ResultData extends DataTransferObject
 {
     public array $data;

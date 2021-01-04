@@ -4,17 +4,10 @@ namespace Grixu\SociusClient\Warehouse\Actions;
 
 use Grixu\SociusClient\Warehouse\DataTransferObjects\StockDataCollection;
 
-/**
- * Class ConvertToStockDataAction
- * @package Grixu\SociusClient\Warehouse\Actions
- */
 class ConvertToStockDataAction
 {
     private ParseStockAction $stockParser;
 
-    /**
-     * ConvertToStockDataAction constructor.
-     */
     public function __construct()
     {
         $this->stockParser = new ParseStockAction();

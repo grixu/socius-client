@@ -4,10 +4,6 @@ namespace Grixu\SociusClient\Query\Actions;
 
 use Grixu\SociusClient\Query\DataTransferObjects\ResultData;
 
-/**
- * Class MakeResultDataAction
- * @package Grixu\SociusClient\Query\Actions
- */
 class MakeResultDataAction
 {
     public function execute(array $responseData): ?ResultData

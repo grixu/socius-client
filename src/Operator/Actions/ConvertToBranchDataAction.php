@@ -4,17 +4,10 @@ namespace Grixu\SociusClient\Operator\Actions;
 
 use Grixu\SociusClient\Operator\DataTransferObjects\BranchDataCollection;
 
-/**
- * Class ConvertToBranchDataAction
- * @package Grixu\SociusClient\Operator\Actions
- */
 class ConvertToBranchDataAction
 {
     private ParseBranchAction $branchParser;
 
-    /**
-     * ConvertToBranchDataAction constructor.
-     */
     public function __construct()
     {
         $this->branchParser = new ParseBranchAction();

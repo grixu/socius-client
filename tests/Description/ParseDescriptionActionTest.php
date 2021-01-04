@@ -7,10 +7,6 @@ use Grixu\SociusClient\SociusClientServiceProvider;
 use Grixu\SociusClient\Support\Tests\TestCallApi;
 use Orchestra\Testbench\TestCase;
 
-/**
- * Class ParseDescriptionActionTest
- * @package Grixu\SociusClient\Tests\Description
- */
 class ParseDescriptionActionTest extends TestCase
 {
     private ParseDescriptionAction $action;
@@ -31,6 +27,11 @@ class ParseDescriptionActionTest extends TestCase
     public function normal_pass()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.description'));
+        $this->checkResults($data);
+    }
+
+    public function checkResults($data)
+    {
         $result = $this->action->execute($data);
 
         $this->assertIsArray($result);
@@ -41,19 +42,13 @@ class ParseDescriptionActionTest extends TestCase
     public function with_language_included()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.description') . '?include=language');
-        $result = $this->action->execute($data);
-
-        $this->assertIsArray($result);
-        $this->assertNotEmpty($result);
+        $this->checkResults($data);
     }
 
     /** @test */
     public function with_product_included()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.description') . '?include=product');
-        $result = $this->action->execute($data);
-
-        $this->assertIsArray($result);
-        $this->assertNotEmpty($result);
+        $this->checkResults($data);
     }
 }

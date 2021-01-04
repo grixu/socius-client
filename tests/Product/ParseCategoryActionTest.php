@@ -31,6 +31,11 @@ class ParseCategoryActionTest extends TestCase
     public function normal_pass()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.category'));
+        $this->checkResults($data);
+    }
+
+    protected function checkResults(array $data)
+    {
         $result = $this->action->execute($data);
 
         $this->assertIsArray($result);
@@ -41,19 +46,13 @@ class ParseCategoryActionTest extends TestCase
     public function with_parent_included()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.category') . '?include=parent');
-        $result = $this->action->execute($data);
-
-        $this->assertIsArray($result);
-        $this->assertNotEmpty($result);
+        $this->checkResults($data);
     }
 
     /** @test */
     public function with_children_included()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.category') . '?include=children');
-        $result = $this->action->execute($data);
-
-        $this->assertIsArray($result);
-        $this->assertNotEmpty($result);
+        $this->checkResults($data);
     }
 }

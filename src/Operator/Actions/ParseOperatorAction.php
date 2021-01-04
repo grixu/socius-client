@@ -5,10 +5,6 @@ namespace Grixu\SociusClient\Operator\Actions;
 use Grixu\SociusClient\Customer\Actions\ConvertToCustomerDataAction;
 use Illuminate\Support\Carbon;
 
-/**
- * Class ParseOperatorAction
- * @package Grixu\SociusClient\Operator\Actions
- */
 class ParseOperatorAction
 {
     public function execute(array $item): array

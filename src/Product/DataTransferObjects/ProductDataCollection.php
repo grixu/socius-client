@@ -11,10 +11,6 @@ use Spatie\DataTransferObject\DataTransferObjectCollection;
  */
 class ProductDataCollection extends DataTransferObjectCollection
 {
-    /**
-     * @param array $data
-     * @return ProductDataCollection
-     */
     public static function create(array $data): ProductDataCollection
     {
         return new static(ProductData::arrayOf($data));

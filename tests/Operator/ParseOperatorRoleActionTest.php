@@ -7,10 +7,6 @@ use Grixu\SociusClient\SociusClientServiceProvider;
 use Grixu\SociusClient\Support\Tests\TestCallApi;
 use Orchestra\Testbench\TestCase;
 
-/**
- * Class ParseOperatorRoleActionTest
- * @package Grixu\SociusClient\Tests\Operator
- */
 class ParseOperatorRoleActionTest extends TestCase
 {
     private ParseOperatorRoleAction $action;
@@ -31,6 +27,11 @@ class ParseOperatorRoleActionTest extends TestCase
     public function normal_pass()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.operator_role'));
+        $this->checkResults($data);
+    }
+
+    protected function checkResults($data)
+    {
         $result = $this->action->execute($data);
 
         $this->assertIsArray($result);
@@ -41,9 +42,6 @@ class ParseOperatorRoleActionTest extends TestCase
     public function with_operators_included()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.operator_role') . '?include=operators');
-        $result = $this->action->execute($data);
-
-        $this->assertIsArray($result);
-        $this->assertNotEmpty($result);
+        $this->checkResults($data);
     }
 }

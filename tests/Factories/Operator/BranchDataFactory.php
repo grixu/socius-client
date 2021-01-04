@@ -5,10 +5,6 @@ namespace Grixu\SociusClient\Tests\Factories\Operator;
 use Grixu\SociusClient\Operator\DataTransferObjects\BranchData;
 use Grixu\SociusClient\Support\Tests\Factory;
 
-/**
- * Class BranchDataFactory
- * @package Grixu\SociusClient\Tests\Factories
- */
 class BranchDataFactory extends Factory
 {
     public static function new(): BranchDataFactory

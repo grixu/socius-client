@@ -8,10 +8,6 @@ use Grixu\SociusClient\Query\DataTransferObjects\RequestQueryData;
 use PHPUnit\Framework\TestCase;
 use Grixu\SociusClient\Tests\Factories\Query\RequestQueryDataFactory;
 
-/**
- * Class AddIncludeActionTest
- * @package Grixu\SociusClient\Tests\Query
- */
 class AddIncludeActionTest extends TestCase
 {
     private AddIncludeAction $action;
@@ -42,7 +38,12 @@ class AddIncludeActionTest extends TestCase
     {
         $includes = ['name', 'show'];
 
-        $result = $this->action->execute($includes, clone $this->queryData, ProductIncludesEnum::class);
+        $this->checkResultsForSameSize($includes, clone $this->queryData);
+    }
+
+    protected function checkResultsForSameSize(array $includes, $queryData)
+    {
+        $result = $this->action->execute($includes, $queryData, ProductIncludesEnum::class);
 
         $this->assertEquals(RequestQueryData::class, get_class($result));
         $this->assertSameSize($this->queryData->includes, $result->includes);
@@ -53,10 +54,7 @@ class AddIncludeActionTest extends TestCase
     {
         $includes = ['brand'];
 
-        $result = $this->action->execute($includes, clone $this->queryData, ProductIncludesEnum::class);
-
-        $this->assertEquals(RequestQueryData::class, get_class($result));
-        $this->assertSameSize($this->queryData->includes, $result->includes);
+        $this->checkResultsForSameSize($includes, clone $this->queryData);
     }
 
     /** @test */
@@ -65,9 +63,6 @@ class AddIncludeActionTest extends TestCase
         $includes = ['brand'];
         $emptyQueryData = new RequestQueryData();
 
-        $result = $this->action->execute($includes, $emptyQueryData, ProductIncludesEnum::class);
-
-        $this->assertEquals(RequestQueryData::class, get_class($result));
-        $this->assertSameSize($includes, $result->includes);
+        $this->checkResultsForSameSize($includes, $emptyQueryData);
     }
 }

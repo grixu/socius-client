@@ -7,10 +7,6 @@ use Grixu\SociusClient\Query\Actions\CheckFiltersAction;
 use Grixu\SociusClient\Query\DataTransferObjects\FilterDataCollection;
 use PHPUnit\Framework\TestCase;
 
-/**
- * Class CheckFiltersActionTest
- * @package Grixu\SociusClient\Tests\Query
- */
 class CheckFiltersActionTest extends TestCase
 {
     private CheckFiltersAction $action;
@@ -25,21 +21,7 @@ class CheckFiltersActionTest extends TestCase
     /** @test */
     public function with_proper_params()
     {
-        $arrData = [
-            [
-                'field' => 'name',
-                'values' => [
-                    'SZKLO',
-                ],
-            ],
-            [
-                'field' => 'index',
-                'values' => [
-                    '725',
-                ],
-            ],
-        ];
-
+        $arrData = $this->makeArrData();
         $filters = FilterDataCollection::create($arrData);
 
         $result = $this->action->execute($filters, ProductFiltersEnum::class);
@@ -47,10 +29,9 @@ class CheckFiltersActionTest extends TestCase
         $this->assertEquals(true, $result);
     }
 
-    /** @test */
-    public function with_wrong_params()
+    protected function makeArrData(?string $fieldName = 'index'): array
     {
-        $arrData = [
+        return [
             [
                 'field' => 'name',
                 'values' => [
@@ -58,13 +39,18 @@ class CheckFiltersActionTest extends TestCase
                 ],
             ],
             [
-                'field' => 'lol',
+                'field' => $fieldName,
                 'values' => [
                     '725',
                 ],
             ],
         ];
+    }
 
+    /** @test */
+    public function with_wrong_params()
+    {
+        $arrData = $this->makeArrData('lol');
         $filters = FilterDataCollection::create($arrData);
 
         $result = $this->action->execute($filters, ProductFiltersEnum::class);

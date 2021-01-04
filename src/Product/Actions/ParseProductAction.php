@@ -8,10 +8,6 @@ use Grixu\SociusClient\Product\Enums\ProductVatTypeEnum;
 use Grixu\SociusClient\Warehouse\Actions\ConvertToStockDataAction;
 use Illuminate\Support\Carbon;
 
-/**
- * Class ParseProductAction
- * @package Grixu\SociusClient\Product\Actions
- */
 class ParseProductAction
 {
      public function execute(array $item)

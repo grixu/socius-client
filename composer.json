@@ -18,6 +18,7 @@
     "require": {
         "php": "^7.4",
         "ext-json": "*",
+        "grixu/api-client": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
         "illuminate/console": "^8.0",
         "illuminate/contracts": "^8.0",

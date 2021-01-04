@@ -5,10 +5,6 @@ namespace Grixu\SociusClient\Tests\Factories\Operator;
 use Grixu\SociusClient\Operator\DataTransferObjects\OperatorData;
 use Grixu\SociusClient\Support\Tests\Factory;
 
-/**
- * Class OperatorDataFactory
- * @package Grixu\SociusClient\Tests\Factories
- */
 class OperatorDataFactory extends Factory
 {
     public static function new(): OperatorDataFactory

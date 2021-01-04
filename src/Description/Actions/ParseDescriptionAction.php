@@ -7,10 +7,6 @@ use Grixu\SociusClient\Product\Actions\ParseProductAction;
 use Grixu\SociusClient\Product\DataTransferObjects\ProductData;
 use Illuminate\Support\Carbon;
 
-/**
- * Class ParseDescriptionAction
- * @package Grixu\SociusClient\Description\Actions
- */
 class ParseDescriptionAction
 {
     public function execute(array $item): array
