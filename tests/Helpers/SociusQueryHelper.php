@@ -15,10 +15,6 @@ use Grixu\SociusClient\Query\DataTransferObjects\ResultData;
 use Illuminate\Support\Collection;
 use Spatie\DataTransferObject\DataTransferObjectCollection;
 
-/**
- * Class SociusQueryHelper
- * @package Grixu\SociusClient\Tests\Helpers
- */
 class SociusQueryHelper extends SociusQuery
 {
     public function getDomain(): SociusDomainEnum

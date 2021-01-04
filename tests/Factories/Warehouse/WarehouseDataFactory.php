@@ -6,10 +6,6 @@ use Grixu\SociusClient\Warehouse\DataTransferObjects\WarehouseData;
 use Grixu\SociusClient\Warehouse\Enums\WarehouseLockEnum;
 use Grixu\SociusClient\Support\Tests\Factory;
 
-/**
- * Class WarehouseDataFactory
- * @package Grixu\SociusClient\Tests\Factories
- */
 class WarehouseDataFactory extends Factory
 {
     public static function new(): WarehouseDataFactory

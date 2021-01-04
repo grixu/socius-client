@@ -7,10 +7,6 @@ use Grixu\SociusClient\Product\Enums\ProductMeasureUnitEnum;
 use Grixu\SociusClient\Product\Enums\ProductVatTypeEnum;
 use Grixu\SociusClient\Support\Tests\Factory;
 
-/**
- * Class ProductDataFactory
- * @package Grixu\SociusClient\Tests\Factories
- */
 class ProductDataFactory extends Factory
 {
     public static function new(): ProductDataFactory

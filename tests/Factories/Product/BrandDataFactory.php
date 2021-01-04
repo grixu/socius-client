@@ -6,10 +6,6 @@ namespace Grixu\SociusClient\Tests\Factories\Product;
 use Grixu\SociusClient\Product\DataTransferObjects\BrandData;
 use Grixu\SociusClient\Support\Tests\Factory;
 
-/**
- * Class BrandDataFactory
- * @package Grixu\SociusClient\Tests\Factories
- */
 class BrandDataFactory extends Factory
 {
     public static function new(): BrandDataFactory

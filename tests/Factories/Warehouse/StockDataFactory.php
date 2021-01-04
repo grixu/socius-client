@@ -5,10 +5,6 @@ namespace Grixu\SociusClient\Tests\Factories\Warehouse;
 use Grixu\SociusClient\Warehouse\DataTransferObjects\StockData;
 use Grixu\SociusClient\Support\Tests\Factory;
 
-/**
- * Class StockDataFactory
- * @package Grixu\SociusClient\Tests\Factories
- */
 class StockDataFactory extends Factory
 {
     public static function new(): StockDataFactory

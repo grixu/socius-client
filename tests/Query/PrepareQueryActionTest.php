@@ -9,10 +9,6 @@ use PHPUnit\Framework\TestCase;
 use Grixu\SociusClient\Tests\Factories\Query\FilterDataFactory;
 use Grixu\SociusClient\Tests\Factories\Query\RequestQueryDataFactory;
 
-/**
- * Class PrepareQueryActionTest
- * @package Grixu\SociusClient\Tests\Query
- */
 class PrepareQueryActionTest extends TestCase
 {
     private PrepareQueryAction $action;
@@ -33,6 +29,11 @@ class PrepareQueryActionTest extends TestCase
         $includeName = $queryData->includes[0];
         $sortName = $queryData->sorts[0];
 
+        $this->basicCheckResult($result, $filterName, $includeName, $sortName);
+    }
+
+    protected function basicCheckResult($result, $filterName, $includeName, $sortName)
+    {
         $this->assertStringContainsString('filter', $result);
         $this->assertStringContainsString('include=', $result);
         $this->assertStringContainsString('sort=', $result);
@@ -51,13 +52,8 @@ class PrepareQueryActionTest extends TestCase
         $includeName = $queryData->includes[0];
         $sortName = $queryData->sorts[0];
 
-        $this->assertStringContainsString('filter', $result);
-        $this->assertStringContainsString('include=', $result);
-        $this->assertStringContainsString('sort=', $result);
+        $this->basicCheckResult($result, $filterName, $includeName, $sortName);
         $this->assertStringContainsString('page=', $result);
-        $this->assertStringContainsString('filter['.$filterName.']', $result);
-        $this->assertStringContainsString('include='.$includeName, $result);
-        $this->assertStringContainsString('sort='.$sortName, $result);
         $this->assertStringContainsString('page=2', $result);
     }
 

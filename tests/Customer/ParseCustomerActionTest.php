@@ -7,10 +7,6 @@ use Grixu\SociusClient\SociusClientServiceProvider;
 use Grixu\SociusClient\Support\Tests\TestCallApi;
 use Orchestra\Testbench\TestCase;
 
-/**
- * Class ParseCustomerActionTest
- * @package Grixu\SociusClient\Tests\Customer
- */
 class ParseCustomerActionTest extends TestCase
 {
     private ParseCustomerAction $action;

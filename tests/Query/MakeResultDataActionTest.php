@@ -8,10 +8,6 @@ use Grixu\SociusClient\Query\DataTransferObjects\ResultData;
 use Grixu\SociusClient\SociusClientServiceProvider;
 use Orchestra\Testbench\TestCase;
 
-/**
- * Class MakeResultDataActionTest
- * @package Grixu\SociusClient\Tests\Query
- */
 class MakeResultDataActionTest extends TestCase
 {
     private MakeResultDataAction $action;

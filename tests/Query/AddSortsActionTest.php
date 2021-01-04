@@ -8,10 +8,6 @@ use Grixu\SociusClient\Query\DataTransferObjects\RequestQueryData;
 use PHPUnit\Framework\TestCase;
 use Grixu\SociusClient\Tests\Factories\Query\RequestQueryDataFactory;
 
-/**
- * Class AddSortsActionTest
- * @package Grixu\SociusClient\Tests\Query
- */
 class AddSortsActionTest extends TestCase
 {
     private AddSortAction $action;
@@ -42,7 +38,12 @@ class AddSortsActionTest extends TestCase
     {
         $sorts = ['name', 'show'];
 
-        $result = $this->action->execute($sorts, clone $this->queryData, ProductSortsEnum::class);
+        $this->checkResultsForSameSize($sorts, clone $this->queryData);
+    }
+
+    protected function checkResultsForSameSize(array $sorts, $queryData)
+    {
+        $result = $this->action->execute($sorts, $queryData, ProductSortsEnum::class);
 
         $this->assertEquals(RequestQueryData::class, get_class($result));
         $this->assertSameSize($this->queryData->sorts, $result->sorts);
@@ -53,10 +54,7 @@ class AddSortsActionTest extends TestCase
     {
         $sorts = ['index'];
 
-        $result = $this->action->execute($sorts, clone $this->queryData, ProductSortsEnum::class);
-
-        $this->assertEquals(RequestQueryData::class, get_class($result));
-        $this->assertSameSize($this->queryData->sorts, $result->sorts);
+        $this->checkResultsForSameSize($sorts, clone $this->queryData);
     }
 
     /** @test */
@@ -65,9 +63,6 @@ class AddSortsActionTest extends TestCase
         $sorts = ['index'];
         $emptyQueryData = new RequestQueryData();
 
-        $result = $this->action->execute($sorts, $emptyQueryData, ProductSortsEnum::class);
-
-        $this->assertEquals(RequestQueryData::class, get_class($result));
-        $this->assertSameSize($sorts, $result->sorts);
+        $this->checkResultsForSameSize($sorts, $emptyQueryData);
     }
 }

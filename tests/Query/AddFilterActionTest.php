@@ -9,10 +9,6 @@ use Grixu\SociusClient\Query\DataTransferObjects\RequestQueryData;
 use PHPUnit\Framework\TestCase;
 use Grixu\SociusClient\Tests\Factories\Query\RequestQueryDataFactory;
 
-/**
- * Class AddFilterActionTest
- * @package Grixu\SociusClient\Tests\Query
- */
 class AddFilterActionTest extends TestCase
 {
     private AddFilterAction $action;

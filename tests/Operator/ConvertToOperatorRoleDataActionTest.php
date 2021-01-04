@@ -8,10 +8,6 @@ use Grixu\SociusClient\SociusClientServiceProvider;
 use Grixu\SociusClient\Support\Tests\TestCallApi;
 use Orchestra\Testbench\TestCase;
 
-/**
- * Class ConvertToOperatorRoleDataActionTest
- * @package Grixu\SociusClient\Tests\Operator
- */
 class ConvertToOperatorRoleDataActionTest extends TestCase
 {
     private ConvertToOperatorRoleDataAction $action;
@@ -32,6 +28,11 @@ class ConvertToOperatorRoleDataActionTest extends TestCase
     public function normal_pass()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.operator_role'));
+        $this->checkResults($data);
+    }
+
+    protected function checkResults($data)
+    {
         $result = $this->action->execute($data);
 
         $this->assertGreaterThan(0, $result->count());
@@ -42,9 +43,6 @@ class ConvertToOperatorRoleDataActionTest extends TestCase
     public function with_operators_included()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.operator_role') . '?include=operators');
-        $result = $this->action->execute($data);
-
-        $this->assertGreaterThan(0, $result->count());
-        $this->assertEquals(OperatorRoleDataCollection::class, get_class($result));
+        $this->checkResults($data);
     }
 }

@@ -7,10 +7,6 @@ use Grixu\SociusClient\SociusClientServiceProvider;
 use Grixu\SociusClient\Support\Tests\TestCallApi;
 use Orchestra\Testbench\TestCase;
 
-/**
- * Class ParseLanguageActionTest
- * @package Grixu\SociusClient\Tests\Description
- */
 class ParseLanguageActionTest extends TestCase
 {
     private ParseLanguageAction $action;

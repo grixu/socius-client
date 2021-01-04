@@ -8,10 +8,6 @@ use Grixu\SociusClient\Warehouse\DataTransferObjects\WarehouseDataCollection;
 use Grixu\SociusClient\Support\Tests\TestCallApi;
 use Orchestra\Testbench\TestCase;
 
-/**
- * Class ConvertToWarehouseDataActionTest
- * @package Grixu\SociusClient\Tests\Warehouse
- */
 class ConvertToWarehouseDataActionTest extends TestCase
 {
     private ConvertToWarehouseDataAction $action;
@@ -32,6 +28,11 @@ class ConvertToWarehouseDataActionTest extends TestCase
     public function normal_pass()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.warehouse'));
+        $this->checkResults($data);
+    }
+
+    protected function checkResults(array $data)
+    {
         $result = $this->action->execute($data);
 
         $this->assertGreaterThan(0, $result->count());
@@ -42,29 +43,20 @@ class ConvertToWarehouseDataActionTest extends TestCase
     public function with_operator_included()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.warehouse') . '?include=operator');
-        $result = $this->action->execute($data);
-
-        $this->assertGreaterThan(0, $result->count());
-        $this->assertEquals(WarehouseDataCollection::class, get_class($result));
+        $this->checkResults($data);
     }
 
     /** @test */
     public function with_customer_included()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.warehouse') . '?include=customer');
-        $result = $this->action->execute($data);
-
-        $this->assertGreaterThan(0, $result->count());
-        $this->assertEquals(WarehouseDataCollection::class, get_class($result));
+        $this->checkResults($data);
     }
 
     /** @test */
     public function with_stocks_included()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.warehouse') . '?include=stocks');
-        $result = $this->action->execute($data);
-
-        $this->assertGreaterThan(0, $result->count());
-        $this->assertEquals(WarehouseDataCollection::class, get_class($result));
+        $this->checkResults($data);
     }
 }

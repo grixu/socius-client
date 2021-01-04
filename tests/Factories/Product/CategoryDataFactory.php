@@ -5,10 +5,6 @@ namespace Grixu\SociusClient\Tests\Factories\Product;
 use Grixu\SociusClient\Product\DataTransferObjects\CategoryData;
 use Grixu\SociusClient\Support\Tests\Factory;
 
-/**
- * Class CategoryDataFactory
- * @package Grixu\SociusClient\Tests\Factories
- */
 class CategoryDataFactory extends Factory
 {
     public static function new(): CategoryDataFactory

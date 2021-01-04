@@ -8,10 +8,6 @@ use Grixu\SociusClient\Warehouse\DataTransferObjects\StockDataCollection;
 use Grixu\SociusClient\Support\Tests\TestCallApi;
 use Orchestra\Testbench\TestCase;
 
-/**
- * Class ConvertToStockDataActionTest
- * @package Grixu\SociusClient\Tests\Warehouse
- */
 class ConvertToStockDataActionTest extends TestCase
 {
     private ConvertToStockDataAction $action;
@@ -32,6 +28,11 @@ class ConvertToStockDataActionTest extends TestCase
     public function normal_pass()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.stock'));
+        $this->checkResults($data);
+    }
+
+    protected function checkResults(array $data)
+    {
         $result = $this->action->execute($data);
 
         $this->assertGreaterThan(0, $result->count());
@@ -42,19 +43,13 @@ class ConvertToStockDataActionTest extends TestCase
     public function with_product_included()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.stock') . '?included=product');
-        $result = $this->action->execute($data);
-
-        $this->assertGreaterThan(0, $result->count());
-        $this->assertEquals(StockDataCollection::class, get_class($result));
+        $this->checkResults($data);
     }
 
     /** @test */
     public function with_warehouse_included()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.stock') . '?included=warehouse');
-        $result = $this->action->execute($data);
-
-        $this->assertGreaterThan(0, $result->count());
-        $this->assertEquals(StockDataCollection::class, get_class($result));
+        $this->checkResults($data);
     }
 }

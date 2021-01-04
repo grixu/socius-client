@@ -8,10 +8,6 @@ use Grixu\SociusClient\SociusClientServiceProvider;
 use Grixu\SociusClient\Support\Tests\TestCallApi;
 use Orchestra\Testbench\TestCase;
 
-/**
- * Class ConvertToProductTypeDataActionTest
- * @package Grixu\SociusClient\Tests\Product
- */
 class ConvertToProductTypeDataActionTest extends TestCase
 {
     private ConvertToProductTypeDataAction $action;
@@ -32,6 +28,11 @@ class ConvertToProductTypeDataActionTest extends TestCase
     public function normal_pass()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.product_type'));
+        $this->checkResults($data);
+    }
+
+    protected function checkResults($data)
+    {
         $result = $this->action->execute($data);
 
         $this->assertGreaterThan(0, $result->count());
@@ -42,9 +43,6 @@ class ConvertToProductTypeDataActionTest extends TestCase
     public function with_products_included()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.product_type') . '?include=products');
-        $result = $this->action->execute($data);
-
-        $this->assertGreaterThan(0, $result->count());
-        $this->assertEquals(ProductTypeDataCollection::class, get_class($result));
+        $this->checkResults($data);
     }
 }

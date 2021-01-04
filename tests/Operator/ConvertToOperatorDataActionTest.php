@@ -8,10 +8,6 @@ use Grixu\SociusClient\SociusClientServiceProvider;
 use Grixu\SociusClient\Support\Tests\TestCallApi;
 use Orchestra\Testbench\TestCase;
 
-/**
- * Class ConvertToOperatorDataActionTest
- * @package Grixu\SociusClient\Tests\Operator
- */
 class ConvertToOperatorDataActionTest extends TestCase
 {
     private ConvertToOperatorDataAction $action;
@@ -32,6 +28,11 @@ class ConvertToOperatorDataActionTest extends TestCase
     public function normal_pass()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.operator'));
+        $this->checkResults($data);
+    }
+
+    protected function checkResults($data)
+    {
         $result = $this->action->execute($data);
 
         $this->assertGreaterThan(0, $result->count());
@@ -42,29 +43,20 @@ class ConvertToOperatorDataActionTest extends TestCase
     public function with_role_included()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.operator') . '?include=role');
-        $result = $this->action->execute($data);
-
-        $this->assertGreaterThan(0, $result->count());
-        $this->assertEquals(OperatorDataCollection::class, get_class($result));
+        $this->checkResults($data);
     }
 
     /** @test */
     public function with_customers_included()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.operator') . '?include=customers');
-        $result = $this->action->execute($data);
-
-        $this->assertGreaterThan(0, $result->count());
-        $this->assertEquals(OperatorDataCollection::class, get_class($result));
+        $this->checkResults($data);
     }
 
     /** @test */
     public function with_branches_included()
     {
         $data = TestCallApi::forCollection(config('socius-client.base_url') . config('socius-client.modules.operator') . '?include=branches');
-        $result = $this->action->execute($data);
-
-        $this->assertGreaterThan(0, $result->count());
-        $this->assertEquals(OperatorDataCollection::class, get_class($result));
+        $this->checkResults($data);
     }
 }

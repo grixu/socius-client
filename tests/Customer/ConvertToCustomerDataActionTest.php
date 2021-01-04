@@ -8,10 +8,6 @@ use Grixu\SociusClient\SociusClientServiceProvider;
 use Grixu\SociusClient\Support\Tests\TestCallApi;
 use Orchestra\Testbench\TestCase;
 
-/**
- * Class ConvertToCustomerDataActionTest
- * @package Grixu\SociusClient\Tests\Customer
- */
 class ConvertToCustomerDataActionTest extends TestCase
 {
     private ConvertToCustomerDataAction $action;
