@@ -4,17 +4,10 @@ namespace Grixu\SociusClient\Product\Actions;
 
 use Grixu\SociusClient\Product\DataTransferObjects\CategoryDataCollection;
 
-/**
- * Class ConvertToCategoryDataAction
- * @package Grixu\SociusClient\Product\Actions
- */
 class ConvertToCategoryDataAction
 {
     private ParseCategoryAction $categoryParser;
 
-    /**
-     * ConvertToCategoryDataAction constructor.
-     */
     public function __construct()
     {
         $this->categoryParser = new ParseCategoryAction();

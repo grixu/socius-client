@@ -4,17 +4,10 @@ namespace Grixu\SociusClient\Product\Actions;
 
 use Grixu\SociusClient\Product\DataTransferObjects\BrandDataCollection;
 
-/**
- * Class ParseBrandAction
- * @package Grixu\SociusClient\Product\Actions
- */
 class ConvertToBrandDataAction
 {
     private ParseBrandAction $brandParser;
 
-    /**
-     * ConvertToBrandDataAction constructor.
-     */
     public function __construct()
     {
         $this->brandParser = new ParseBrandAction();

@@ -9,10 +9,6 @@ use Grixu\SociusClient\Operator\DataTransferObjects\OperatorData;
 use Grixu\SociusClient\Warehouse\Enums\WarehouseLockEnum;
 use Illuminate\Support\Carbon;
 
-/**
- * Class ParseWarehouseAction
- * @package Grixu\SociusClient\Warehouse\Actions
- */
 class ParseWarehouseAction
 {
     public function execute(array $item): array

@@ -4,10 +4,6 @@ namespace Grixu\SociusClient\Operator\Actions;
 
 use Illuminate\Support\Carbon;
 
-/**
- * Class ParseBranchAction
- * @package Grixu\SociusClient\Operator\Actions
- */
 class ParseBranchAction
 {
     public function execute(array $item): array

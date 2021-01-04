@@ -4,10 +4,6 @@ namespace Grixu\SociusClient\Operator\Actions;
 
 use Illuminate\Support\Carbon;
 
-/**
- * Class ParseOperatorRoleAction
- * @package Grixu\SociusClient\Operator\Actions
- */
 class ParseOperatorRoleAction
 {
     public function execute(array $item): array

@@ -5,10 +5,6 @@ namespace Grixu\SociusClient\Product\Actions;
 use Grixu\SociusClient\Product\DataTransferObjects\CategoryData;
 use Illuminate\Support\Carbon;
 
-/**
- * Class ParseCategoryAction
- * @package Grixu\SociusClient\Product\Actions
- */
 class ParseCategoryAction
 {
     public function execute(array $item): array

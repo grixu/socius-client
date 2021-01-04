@@ -9,10 +9,6 @@ class FactoryCollection extends Factory
 {
     private array $factories;
 
-    /**
-     * @param string $factoryClass
-     * @param int $times
-     */
     public function __construct(string $factoryClass, int $times)
     {
         $this->factories = array_fill(

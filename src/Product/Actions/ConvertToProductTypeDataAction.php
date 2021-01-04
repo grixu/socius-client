@@ -4,17 +4,10 @@ namespace Grixu\SociusClient\Product\Actions;
 
 use Grixu\SociusClient\Product\DataTransferObjects\ProductTypeDataCollection;
 
-/**
- * Class ParseProductTypeAction
- * @package Grixu\SociusClient\Product\Actions
- */
 class ConvertToProductTypeDataAction
 {
     private ParseProductTypeAction $productTypeParser;
 
-    /**
-     * ConvertToProductTypeDataAction constructor.
-     */
     public function __construct()
     {
         $this->productTypeParser = new ParseProductTypeAction();

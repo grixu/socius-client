@@ -5,10 +5,6 @@ namespace Grixu\SociusClient\Query\DataTransferObjects;
 use Grixu\SociusClient\SociusRequest;
 use Spatie\DataTransferObject\DataTransferObject;
 
-/**
- * Class RequestQueryData
- * @package Grixu\SociusClient\Query\DataTransferObjects
- */
 class RequestQueryData extends DataTransferObject
 {
     public ?FilterDataCollection $filters;

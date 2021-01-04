@@ -4,10 +4,6 @@ namespace Grixu\SociusClient\Query\Actions;
 
 use Grixu\SociusClient\Query\DataTransferObjects\RequestQueryData;
 
-/**
- * Class AddIncludeAction
- * @package Grixu\SociusClient\Query\Actions
- */
 class AddIncludeAction
 {
     public function execute(array $includes, RequestQueryData $data, string $enumClass): RequestQueryData
