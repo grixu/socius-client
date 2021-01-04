@@ -2,16 +2,16 @@
 
 namespace Grixu\SociusClient\Tests\Socius;
 
+use Grixu\ApiClient\CallApi;
+use Grixu\ApiClient\Exceptions\ApiCallException;
+use Grixu\ApiClient\Exceptions\TokenIssueException;
 use Grixu\SociusClient\Product\DataTransferObjects\ProductDataCollection;
 use Grixu\SociusClient\Query\Actions\AddFilterAction;
 use Grixu\SociusClient\Query\Actions\AddIncludeAction;
 use Grixu\SociusClient\Query\Actions\AddSortAction;
-use Grixu\SociusClient\Query\Actions\CallApiAction;
 use Grixu\SociusClient\Query\Actions\MakeResultDataAction;
 use Grixu\SociusClient\Query\Actions\PrepareQueryAction;
 use Grixu\SociusClient\Query\DataTransferObjects\RequestQueryData;
-use Grixu\SociusClient\Query\Exceptions\ApiCallException;
-use Grixu\SociusClient\Query\Exceptions\TokenIssueException;
 use Grixu\SociusClient\SociusClientServiceProvider;
 use Grixu\SociusClient\SociusDomainEnum;
 use Grixu\SociusClient\SociusQuery;
@@ -20,10 +20,6 @@ use Illuminate\Support\Facades\Http;
 use Grixu\SociusClient\Tests\Helpers\SociusQueryHelper;
 use Orchestra\Testbench\TestCase;
 
-/**
- * Class SociusQueryTest
- * @package Grixu\SociusClient\Tests\Socius
- */
 class SociusQueryTest extends TestCase
 {
     private SociusQuery $query;
@@ -47,7 +43,7 @@ class SociusQueryTest extends TestCase
         $this->assertEquals(AddIncludeAction::class, get_class($this->query->getAddIncludeAction()));
         $this->assertEquals(AddSortAction::class, get_class($this->query->getAddSortAction()));
         $this->assertEquals(PrepareQueryAction::class, get_class($this->query->getPrepareQueryAction()));
-        $this->assertEquals(CallApiAction::class, get_class($this->query->getCallApiAction()));
+        $this->assertEquals(CallApi::class, get_class($this->query->getApiClient()));
         $this->assertEquals(MakeResultDataAction::class, get_class($this->query->getMakeResultDataAction()));
         $this->assertEquals(SociusDomainEnum::PRODUCT(), $this->query->getDomain());
         $this->assertEquals(RequestQueryData::class, get_class($this->query->getQuery()));
@@ -156,7 +152,7 @@ class SociusQueryTest extends TestCase
     /** @test */
     public function fetch_with_http_error()
     {
-        Cache::forget('socius-token');
+        Cache::forget('socius-client');
         Http::fake(
             [
                 '*' => Http::sequence()
@@ -183,7 +179,7 @@ class SociusQueryTest extends TestCase
     /** @test */
     public function with_token_error()
     {
-        Cache::forget('socius-token');
+        Cache::forget('socius-client');
         Http::fake(
             [
                 '*' => Http::response('Not Found.', 404)
