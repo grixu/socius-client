@@ -2,9 +2,9 @@
 
 namespace Grixu\SociusClient\Tests\Factories\Query;
 
+use Grixu\DataFactories\Factory;
 use Grixu\SociusClient\Query\DataTransferObjects\FilterDataCollection;
 use Grixu\SociusClient\Query\DataTransferObjects\RequestQueryData;
-use Grixu\SociusClient\Support\Tests\Factory;
 
 class RequestQueryDataFactory extends Factory
 {

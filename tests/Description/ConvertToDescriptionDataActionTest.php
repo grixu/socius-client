@@ -5,7 +5,7 @@ namespace Grixu\SociusClient\Tests\Description;
 use Grixu\SociusClient\Description\Actions\ConvertToDescriptionDataAction;
 use Grixu\SociusClient\Description\DataTransferObjects\ProductDescriptionDataCollection;
 use Grixu\SociusClient\SociusClientServiceProvider;
-use Grixu\SociusClient\Support\Tests\TestCallApi;
+use Grixu\SociusClient\Tests\Helpers\TestCallApi;
 use Orchestra\Testbench\TestCase;
 
 class ConvertToDescriptionDataActionTest extends TestCase

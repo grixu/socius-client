@@ -5,7 +5,7 @@ namespace Grixu\SociusClient\Tests\Customer;
 use Grixu\SociusClient\Customer\Actions\ConvertToCustomerDataAction;
 use Grixu\SociusClient\Customer\DataTransferObjects\CustomerDataCollection;
 use Grixu\SociusClient\SociusClientServiceProvider;
-use Grixu\SociusClient\Support\Tests\TestCallApi;
+use Grixu\SociusClient\Tests\Helpers\TestCallApi;
 use Orchestra\Testbench\TestCase;
 
 class ConvertToCustomerDataActionTest extends TestCase

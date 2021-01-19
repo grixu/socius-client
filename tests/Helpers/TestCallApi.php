@@ -1,6 +1,6 @@
 <?php
 
-namespace Grixu\SociusClient\Support\Tests;
+namespace Grixu\SociusClient\Tests\Helpers;
 
 use Grixu\ApiClient\ApiClient;
 use Grixu\SociusClient\Query\Actions\MakeResultDataAction;

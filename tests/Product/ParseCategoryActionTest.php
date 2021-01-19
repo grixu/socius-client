@@ -4,13 +4,9 @@ namespace Grixu\SociusClient\Tests\Product;
 
 use Grixu\SociusClient\Product\Actions\ParseCategoryAction;
 use Grixu\SociusClient\SociusClientServiceProvider;
-use Grixu\SociusClient\Support\Tests\TestCallApi;
+use Grixu\SociusClient\Tests\Helpers\TestCallApi;
 use Orchestra\Testbench\TestCase;
 
-/**
- * Class ParseCategoryActionTest
- * @package Grixu\SociusClient\Tests\Product
- */
 class ParseCategoryActionTest extends TestCase
 {
     private ParseCategoryAction $action;

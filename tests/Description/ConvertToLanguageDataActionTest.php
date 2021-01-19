@@ -5,7 +5,7 @@ namespace Grixu\SociusClient\Tests\Description;
 use Grixu\SociusClient\Description\Actions\ConvertToLanguageDataAction;
 use Grixu\SociusClient\Description\DataTransferObjects\LanguageDataCollection;
 use Grixu\SociusClient\SociusClientServiceProvider;
-use Grixu\SociusClient\Support\Tests\TestCallApi;
+use Grixu\SociusClient\Tests\Helpers\TestCallApi;
 use Orchestra\Testbench\TestCase;
 
 class ConvertToLanguageDataActionTest extends TestCase

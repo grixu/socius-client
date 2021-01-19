@@ -2,8 +2,8 @@
 
 namespace Grixu\SociusClient\Tests\Factories\Query;
 
+use Grixu\DataFactories\Factory;
 use Grixu\SociusClient\Query\DataTransferObjects\FilterData;
-use Grixu\SociusClient\Support\Tests\Factory;
 
 class FilterDataFactory extends Factory
 {

@@ -5,7 +5,7 @@ namespace Grixu\SociusClient\Tests\Warehouse;
 use Grixu\SociusClient\SociusClientServiceProvider;
 use Grixu\SociusClient\Warehouse\Actions\ConvertToStockDataAction;
 use Grixu\SociusClient\Warehouse\DataTransferObjects\StockDataCollection;
-use Grixu\SociusClient\Support\Tests\TestCallApi;
+use Grixu\SociusClient\Tests\Helpers\TestCallApi;
 use Orchestra\Testbench\TestCase;
 
 class ConvertToStockDataActionTest extends TestCase
