@@ -42,6 +42,7 @@ class ParseStockActionTest extends TestCase
     public function with_product_included()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.stock') . '?include=product');
+        ray($data);
         $this->checkResults($data);
     }
 

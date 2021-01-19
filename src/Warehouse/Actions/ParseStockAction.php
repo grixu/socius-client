@@ -31,7 +31,7 @@ class ParseStockAction
             'updatedAt' => Carbon::make($item['updatedAt']),
             'warehouseId' => (int) $item['warehouseId'],
             'productId' => (int) $item['productId'],
-            'xlId' => (int) $item['xlId'],
+            'xlId' => (string) $item['xlId'],
             'warehouse' => $warehouse,
             'product' => $product,
         ];

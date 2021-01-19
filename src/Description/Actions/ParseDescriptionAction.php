@@ -36,7 +36,7 @@ class ParseDescriptionAction
             'url' => (string) $item['url'],
             'lastModification' => Carbon::make($item['lastModification']),
             'lastModificationDesc' => Carbon::make($item['lastModificationDesc']),
-            'xlId' => (int) $item['xlId'],
+            'xlId' => (string) $item['xlId'],
             'syncTs' => Carbon::make($item['syncTs']),
             'updatedAt' => Carbon::make($item['updatedAt']),
             'language' => $language,

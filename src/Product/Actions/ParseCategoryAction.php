@@ -26,7 +26,7 @@ class ParseCategoryAction
             'syncTs' => Carbon::make($item['syncTs']),
             'updatedAt' => Carbon::make($item['updatedAt']),
             'xlId' => (int)$item['xlId'],
-            'parentId' => (int)$item['parent_id'],
+            'parentId' => (int)$item['parentId'],
             'parent' => $parent,
             'children' => $children,
         ];
