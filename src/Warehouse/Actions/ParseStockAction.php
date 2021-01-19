@@ -26,12 +26,12 @@ class ParseStockAction
         return [
             'id' => (int) $item['id'],
             'amount' => (double) $item['amount'],
-            'receptionDate' => Carbon::make($item['reception_date']),
-            'syncTs' => Carbon::make($item['sync_ts']),
-            'updatedAt' => Carbon::make($item['updated_at']),
-            'warehouseId' => (int) $item['warehouse_id'],
-            'productId' => (int) $item['product_id'],
-            'xlId' => (int) $item['xl_id'],
+            'receptionDate' => Carbon::make($item['receptionDate']),
+            'syncTs' => Carbon::make($item['syncTs']),
+            'updatedAt' => Carbon::make($item['updatedAt']),
+            'warehouseId' => (int) $item['warehouseId'],
+            'productId' => (int) $item['productId'],
+            'xlId' => (int) $item['xlId'],
             'warehouse' => $warehouse,
             'product' => $product,
         ];

@@ -17,8 +17,8 @@ class ParseBrandAction
         return [
             'id' => (int)$item['id'],
             'name' => $item['name'],
-            'updatedAt' => Carbon::make($item['updated_at']),
-            'xlId' => (int) $item['xl_id'],
+            'updatedAt' => Carbon::make($item['updatedAt']),
+            'xlId' => (int) $item['xlId'],
             'products' => $products,
         ];
     }
