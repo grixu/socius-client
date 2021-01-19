@@ -6,17 +6,17 @@ use Spatie\Enum\Laravel\Enum;
 
 /**
  * @method static self amount()
- * @method static self amount_greater()
- * @method static self amount_lower()
- * @method static self product_id()
- * @method static self warehouse_id()
+ * @method static self amountGreater()
+ * @method static self amountLower()
+ * @method static self productId()
+ * @method static self warehouseId()
  * @method static self reception()
- * @method static self reception_before()
- * @method static self reception_between()
- * @method static self reception_after()
- * @method static self synced_before()
- * @method static self synced_between()
- * @method static self synced_after()
+ * @method static self receptionBefore()
+ * @method static self receptionBetween()
+ * @method static self receptionAfter()
+ * @method static self syncedBefore()
+ * @method static self syncedBetween()
+ * @method static self syncedAfter()
  */
 class StockFiltersEnum extends Enum
 {

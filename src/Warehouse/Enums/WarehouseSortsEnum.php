@@ -9,8 +9,8 @@ use Spatie\Enum\Laravel\Enum;
  * @method static self internal()
  * @method static self country()
  * @method static self locked()
- * @method static self stock_counting()
- * @method static self last_modification()
+ * @method static self stockCounting()
+ * @method static self lastModification()
  */
 class WarehouseSortsEnum extends Enum
 {

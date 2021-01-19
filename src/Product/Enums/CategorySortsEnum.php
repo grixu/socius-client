@@ -6,7 +6,7 @@ use Spatie\Enum\Laravel\Enum;
 
 /**
  * @method static self name()
- * @method static self parent_id()
+ * @method static self parentId()
  */
 class CategorySortsEnum extends Enum
 {

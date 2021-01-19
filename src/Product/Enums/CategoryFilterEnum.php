@@ -6,10 +6,10 @@ use Spatie\Enum\Laravel\Enum;
 
 /**
  * @method static self name()
- * @method static self parent_id()
- * @method static self synced_before()
- * @method static self synced_between()
- * @method static self synced_after()
+ * @method static self parentId()
+ * @method static self syncedBefore()
+ * @method static self syncedBetween()
+ * @method static self syncedAfter()
  */
 class CategoryFilterEnum extends Enum
 {
