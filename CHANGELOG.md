@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed Factory (for DTOs), instead use `grixu/data-factories`
 - An updated filter, include and sort enums to used camelCased params
 - An updated actions to parse data from Socius v 3.0 
+- Updated to PHP8
 
 ## 1.2.0 - 2021-01-04
 
