@@ -18,9 +18,9 @@ use Spatie\DataTransferObject\DataTransferObjectCollection;
 class SociusQuery
 {
     protected SociusDomainEnum $domain;
-    protected string $domainFiltersEnum;
-    protected string $domainIncludesEnum;
-    protected string $domainSortsEnum;
+    protected ?string $domainFiltersEnum;
+    protected ?string $domainIncludesEnum;
+    protected ?string $domainSortsEnum;
 
     protected Collection $allowedFilters;
     protected Collection $allowedSorts;
