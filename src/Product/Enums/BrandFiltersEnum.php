@@ -7,6 +7,6 @@ use Spatie\Enum\Laravel\Enum;
 /**
  * @method static self name()
  */
-class BrandFilterEnum extends Enum
+class BrandFiltersEnum extends Enum
 {
 }

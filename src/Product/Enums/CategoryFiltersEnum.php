@@ -11,6 +11,6 @@ use Spatie\Enum\Laravel\Enum;
  * @method static self syncedBetween()
  * @method static self syncedAfter()
  */
-class CategoryFilterEnum extends Enum
+class CategoryFiltersEnum extends Enum
 {
 }
