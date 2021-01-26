@@ -5,7 +5,7 @@ namespace Grixu\SociusClient\Tests\Operator;
 use Grixu\SociusClient\Operator\Actions\ConvertToOperatorDataAction;
 use Grixu\SociusClient\Operator\DataTransferObjects\OperatorDataCollection;
 use Grixu\SociusClient\SociusClientServiceProvider;
-use Grixu\SociusClient\Support\Tests\TestCallApi;
+use Grixu\SociusClient\Tests\Helpers\TestCallApi;
 use Orchestra\Testbench\TestCase;
 
 class ConvertToOperatorDataActionTest extends TestCase

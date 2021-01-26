@@ -4,7 +4,7 @@ namespace Grixu\SociusClient\Tests\Warehouse;
 
 use Grixu\SociusClient\SociusClientServiceProvider;
 use Grixu\SociusClient\Warehouse\Actions\ParseStockAction;
-use Grixu\SociusClient\Support\Tests\TestCallApi;
+use Grixu\SociusClient\Tests\Helpers\TestCallApi;
 use Orchestra\Testbench\TestCase;
 
 class ParseStockActionTest extends TestCase
@@ -42,6 +42,7 @@ class ParseStockActionTest extends TestCase
     public function with_product_included()
     {
         $data = TestCallApi::forSingle(config('socius-client.base_url') . config('socius-client.modules.stock') . '?include=product');
+        ray($data);
         $this->checkResults($data);
     }
 

@@ -6,7 +6,7 @@ use Spatie\Enum\Laravel\Enum;
 
 /**
  * @method static self name()
- * @method static self language_id()
+ * @method static self languageId()
  */
 class DescriptionSortsEnum extends Enum
 {

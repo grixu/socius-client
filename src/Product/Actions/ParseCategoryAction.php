@@ -23,10 +23,10 @@ class ParseCategoryAction
        return [
             'id' => $item['id'],
             'name' => $item['name'],
-            'syncTs' => Carbon::make($item['sync_ts']),
-            'updatedAt' => Carbon::make($item['updated_at']),
-            'xlId' => (int)$item['xl_id'],
-            'parentId' => (int)$item['parent_id'],
+            'syncTs' => Carbon::make($item['syncTs']),
+            'updatedAt' => Carbon::make($item['updatedAt']),
+            'xlId' => (int)$item['xlId'],
+            'parentId' => (int)$item['parentId'],
             'parent' => $parent,
             'children' => $children,
         ];

@@ -2,14 +2,8 @@
 
 namespace Grixu\SociusClient\Product\DataTransferObjects;
 
-use Carbon\Carbon;
-use Spatie\DataTransferObject\DataTransferObject;
-
-class ProductTypeData  extends DataTransferObject
+class ProductTypeData  extends \Grixu\SociusModels\Product\DataTransferObjects\ProductTypeData
 {
     public int $id;
-    public string $name;
-    public Carbon $updatedAt;
-    public int $xlId;
     public ?ProductDataCollection $products;
 }

@@ -4,7 +4,7 @@ namespace Grixu\SociusClient\Tests\Customer;
 
 use Grixu\SociusClient\Customer\Actions\ParseCustomerAction;
 use Grixu\SociusClient\SociusClientServiceProvider;
-use Grixu\SociusClient\Support\Tests\TestCallApi;
+use Grixu\SociusClient\Tests\Helpers\TestCallApi;
 use Orchestra\Testbench\TestCase;
 
 class ParseCustomerActionTest extends TestCase

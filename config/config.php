@@ -26,10 +26,10 @@ use Grixu\SociusClient\Product\Actions\ConvertToBrandDataAction;
 use Grixu\SociusClient\Product\Actions\ConvertToCategoryDataAction;
 use Grixu\SociusClient\Product\Actions\ConvertToProductDataAction;
 use Grixu\SociusClient\Product\Actions\ConvertToProductTypeDataAction;
-use Grixu\SociusClient\Product\Enums\BrandFilterEnum;
+use Grixu\SociusClient\Product\Enums\BrandFiltersEnum;
 use Grixu\SociusClient\Product\Enums\BrandIncludesEnum;
 use Grixu\SociusClient\Product\Enums\BrandSortsEnum;
-use Grixu\SociusClient\Product\Enums\CategoryFilterEnum;
+use Grixu\SociusClient\Product\Enums\CategoryFiltersEnum;
 use Grixu\SociusClient\Product\Enums\CategoryIncludesEnum;
 use Grixu\SociusClient\Product\Enums\CategorySortsEnum;
 use Grixu\SociusClient\Product\Enums\ProductFiltersEnum;
@@ -59,8 +59,8 @@ return [
     'allowed_filters' => [
         ProductTypeFiltersEnum::class,
         ProductFiltersEnum::class,
-        BrandFilterEnum::class,
-        CategoryFilterEnum::class,
+        BrandFiltersEnum::class,
+        CategoryFiltersEnum::class,
         CustomerFiltersEnum::class,
         DescriptionFiltersEnum::class,
         LanguageFiltersEnum::class,

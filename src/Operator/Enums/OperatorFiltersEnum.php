@@ -6,13 +6,13 @@ use Spatie\Enum\Laravel\Enum;
 
 /**
  * @method static self name()
- * @method static self xl_username()
+ * @method static self xlUsername()
  * @method static self email()
- * @method static self operator_role_id()
- * @method static self xl_id()
- * @method static self synced_before()
- * @method static self synced_between()
- * @method static self synced_after()
+ * @method static self operatorRoleId()
+ * @method static self xlId()
+ * @method static self syncedBefore()
+ * @method static self syncedBetween()
+ * @method static self syncedAfter()
  */
 class OperatorFiltersEnum extends Enum
 {

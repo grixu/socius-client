@@ -3,9 +3,9 @@
 namespace Grixu\SociusClient\Product\Actions;
 
 use Grixu\SociusClient\Description\Actions\ConvertToDescriptionDataAction;
-use Grixu\SociusClient\Product\Enums\ProductMeasureUnitEnum;
-use Grixu\SociusClient\Product\Enums\ProductVatTypeEnum;
 use Grixu\SociusClient\Warehouse\Actions\ConvertToStockDataAction;
+use Grixu\SociusModels\Product\Enums\ProductMeasureUnitEnum;
+use Grixu\SociusModels\Product\Enums\ProductVatTypeEnum;
 use Illuminate\Support\Carbon;
 
 class ParseProductAction
@@ -41,26 +41,25 @@ class ParseProductAction
             'name' => $item['name'],
             'index' => $item['index'],
             'ean' => $item['ean'],
-            'measureUnit' => new ProductMeasureUnitEnum($item['measure_unit']),
-            'taxGroup' => new ProductVatTypeEnum($item['tax_group']),
-            'taxValue' => (int)$item['tax_value'],
+            'measureUnit' => new ProductMeasureUnitEnum($item['measureUnit']),
+            'taxGroup' => new ProductVatTypeEnum($item['taxGroup']),
+            'taxValue' => (int)$item['taxValue'],
             'weight' => (double)$item['weight'],
-            'xlId' => (int)$item['xl_id'],
-            'operatorId' => !empty($item['operator_id']) ? (int)$item['operator_id'] : null,
-            'brandId' => !empty($item['brand_id']) ? (int)$item['brand_id'] : null,
-            'productTypeId' => !empty($item['product_type_id']) ? (int)$item['product_type_id'] : null,
-            'syncTs' => Carbon::make($item['sync_ts']),
-            'updatedAt' => Carbon::make($item['updated_at']),
+            'xlId' => (int)$item['xlId'],
+            'operatorId' => !empty($item['operatorId']) ? (int)$item['operatorId'] : null,
+            'brandId' => !empty($item['brandId']) ? (int)$item['brandId'] : null,
+            'productTypeId' => !empty($item['productTypeId']) ? (int)$item['productTypeId'] : null,
+            'syncTs' => Carbon::make($item['syncTs']),
+            'updatedAt' => Carbon::make($item['updatedAt']),
             'eshop' => (bool)$item['eshop'],
             'availability' => (bool)$item['availability'],
             'attachments' => (bool)$item['attachments'],
             'archived' => (bool)$item['archived'],
             'blocked' => (bool)$item['archived'],
             'flags' => !empty($item['flags']) ? (int)$item['flags'] : null,
-            'simplyLeaseCategory' => !empty($item['simply_lease_category']) ? (int)$item['simply_lease_category'] : null,
             'price' => !empty($item['price']) ? (float)$item['price'] : null,
-            'eshopPrice' => !empty($item['eshop_price']) ? (float)$item['eshop_price'] : null,
-            'priceUpdated' => Carbon::make($item['price_updated']),
+            'eshopPrice' => !empty($item['eshopPrice']) ? (float)$item['eshopPrice'] : null,
+            'priceUpdated' => Carbon::make($item['priceUpdated']),
             'brand' => $brand,
             'productType' => $productType,
             'stocks' => $stocks,

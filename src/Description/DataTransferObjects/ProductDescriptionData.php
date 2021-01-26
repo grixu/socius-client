@@ -3,26 +3,10 @@
 namespace Grixu\SociusClient\Description\DataTransferObjects;
 
 use Grixu\SociusClient\Product\DataTransferObjects\ProductData;
-use Illuminate\Support\Carbon;
-use Spatie\DataTransferObject\DataTransferObject;
 
-class ProductDescriptionData extends DataTransferObject
+class ProductDescriptionData extends \Grixu\SociusModels\Description\DataTransferObjects\ProductDescriptionData
 {
     public int $id;
-    public string $name;
-    public ?string $desc;
-    public ?string $pageTitle;
-    public ?string $keywords;
-    public ?string $shortDesc;
-    public ?string $metaDesc;
-    public ?string $url;
-    public ?Carbon $lastModification;
-    public ?Carbon $lastModificationDesc;
-    public int $xlId;
-    public int $languageId;
-    public int $productId;
-    public Carbon $syncTs;
-    public Carbon $updatedAt;
     public ?ProductData $product;
     public ?LanguageData $language;
 }

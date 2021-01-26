@@ -4,7 +4,7 @@ namespace Grixu\SociusClient\Tests\Operator;
 
 use Grixu\SociusClient\Operator\Actions\ParseBranchAction;
 use Grixu\SociusClient\SociusClientServiceProvider;
-use Grixu\SociusClient\Support\Tests\TestCallApi;
+use Grixu\SociusClient\Tests\Helpers\TestCallApi;
 use Orchestra\Testbench\TestCase;
 
 class ParseBranchActionTest extends TestCase

@@ -6,7 +6,7 @@ use Grixu\SociusClient\Customer\Actions\ParseCustomerAction;
 use Grixu\SociusClient\Customer\DataTransferObjects\CustomerData;
 use Grixu\SociusClient\Operator\Actions\ParseOperatorAction;
 use Grixu\SociusClient\Operator\DataTransferObjects\OperatorData;
-use Grixu\SociusClient\Warehouse\Enums\WarehouseLockEnum;
+use Grixu\SociusModels\Warehouse\Enums\WarehouseLockEnum;
 use Illuminate\Support\Carbon;
 
 class ParseWarehouseAction
@@ -38,14 +38,14 @@ class ParseWarehouseAction
             'internal' => (bool) $item['internal'],
             'locked' => new WarehouseLockEnum($item['locked']),
             'country' => (string) $item['country'],
-            'stockCounting' => (bool) $item['stock_counting'],
-            'stockCountingDate' => Carbon::make($item['stock_counting_date']),
-            'syncTs' => Carbon::make($item['sync_ts']),
-            'updatedAt' => Carbon::make($item['updated_at']),
-            'operatorId' => (int) $item['operator_id'],
-            'customerId' => (int) $item['customer_id'],
-            'lastModification' => Carbon::make($item['last_modification']),
-            'xlId' => (int) $item['xl_id'],
+            'stockCounting' => (bool) $item['stockCounting'],
+            'stockCountingDate' => Carbon::make($item['stockCountingDate']),
+            'syncTs' => Carbon::make($item['syncTs']),
+            'updatedAt' => Carbon::make($item['updatedAt']),
+            'operatorId' => (int) $item['operatorId'],
+            'customerId' => (int) $item['customerId'],
+            'lastModification' => Carbon::make($item['lastModification']),
+            'xlId' => (int) $item['xlId'],
             'operator' => $operator,
             'customer' => $customer,
             'stocks' => $stocks,

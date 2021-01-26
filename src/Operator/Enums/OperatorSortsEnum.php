@@ -7,7 +7,7 @@ use Spatie\Enum\Laravel\Enum;
 /**
  * @method static self name()
  * @method static self email()
- * @method static self xl_username()
+ * @method static self xlUsername()
  */
 class OperatorSortsEnum extends Enum
 {

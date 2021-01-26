@@ -17,8 +17,8 @@ class ParseOperatorRoleAction
         return [
             'id' => (int) $item['id'],
             'name' => (string) $item['name'],
-            'xlId' => (int) $item['xl_id'],
-            'updatedAt' => Carbon::make($item['updated_at']),
+            'xlId' => (int) $item['xlId'],
+            'updatedAt' => Carbon::make($item['updatedAt']),
             'operators' => $operators
         ];
     }
