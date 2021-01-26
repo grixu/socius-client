@@ -10,4 +10,9 @@ class StockDataCollection extends DataTransferObjectCollection
     {
         return new static(StockData::arrayOf($data));
     }
+
+    public function current(): StockData
+    {
+        return parent::current();
+    }
 }

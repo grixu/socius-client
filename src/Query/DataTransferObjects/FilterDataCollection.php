@@ -10,4 +10,9 @@ class FilterDataCollection extends DataTransferObjectCollection
     {
         return new static(FilterData::arrayOf($data));
     }
+
+    public function current(): FilterData
+    {
+        return parent::current();
+    }
 }

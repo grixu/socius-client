@@ -10,4 +10,9 @@ class WarehouseDataCollection extends DataTransferObjectCollection
     {
         return new static(WarehouseData::arrayOf($data));
     }
+
+    public function current(): WarehouseData
+    {
+        return parent::current();
+    }
 }
