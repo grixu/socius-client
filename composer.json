@@ -19,7 +19,7 @@
         "php": "^7.4|^8.0",
         "ext-json": "*",
         "grixu/api-client": "^2.0",
-        "grixu/socius-models": "dev-main",
+        "grixu/socius-models": "^1.1.6",
         "guzzlehttp/guzzle": "^7.2",
         "illuminate/console": "^8.0",
         "illuminate/contracts": "^8.0",
@@ -63,11 +63,5 @@
                 "SociusClient": "Grixu\\SociusClient\\SociusClientFacade"
             }
         }
-    },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../socius-models"
-        }
-    ]
+    }
 }
