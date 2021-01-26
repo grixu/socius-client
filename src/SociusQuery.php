@@ -222,4 +222,9 @@ class SociusQuery
     {
         return $this->results;
     }
+
+    public function getRawResults(): ResultData
+    {
+        return $this->rawResults;
+    }
 }
