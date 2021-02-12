@@ -4,9 +4,16 @@ All notable changes to this project will be documented in this file.
 The format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 2.0.0 - 2021-02-12
+
+- Completely rebuild project
+- Now uses API Client 2.0 (`grixu/api-client`)
+- Require PHP8
+- Much simpler & more tolerant for changes in filters, includes, sorts names due to moves allowed values to config
+
 ## 1.3.2 - 2021-01-26
 
-- Added getter for RawResults in SociusQuery
+- An added getter for RawResults in SociusQuery
 
 ## 1.3.1 - 2021-01-26
 

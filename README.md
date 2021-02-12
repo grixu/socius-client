@@ -13,6 +13,7 @@ composer require grixu/socius-client
 ## Basic usage
 
 Start with fill you `.env` file with proper data for connection with Socius API:
+
 ```dotenv
 SOCIUS_BASE_URL=""
 SOCIUS_OAUTH=""
@@ -25,11 +26,14 @@ Then you can use facade `SociusClient` and simply make call to API:
 ```php
 use Grixu\SociusClient\SociusClientFacade as SociusClient;
 
-SociusClient::product()->addFilter('name', 'SZKLO')->fetch()->getResults();
+$query = SociusClient::product()->compose()->addFilter('name', 'SZKLO');
+$query->fetch();
+
+$data = $query->parse(DtoClass::class);
 ```
 
-Use can use `SociusClient` facade to start make query to Socius API, by choosing
-which module you would like to query:
+Use can use `SociusClient` facade to start make query to Socius API, by choosing which module you would like to query:
+
 - `product`
 - `productType`
 - `category`
@@ -43,11 +47,13 @@ which module you would like to query:
 - `warehouse`
 - `stock`
 
-After call one of those functions to filter data or add sorting or related data:
+After call one of those functions, you can add filters to query or sorting or request related data via
+calling `compose()` and one of below methods:
+
 - `addFilter('column_name', ...'values')`
 - `addSort('column_name')`
 - `addInclude('column_name')`
-  
+
 After that just call `fetch(page_number)` (or without `page_number` to fetch all data) and `getResults`
 to receive `DataTransferObjectCollection` object with received data from Socius API.
 
