@@ -16,26 +16,15 @@
         }
     ],
     "require": {
-        "php": "^7.4|^8.0",
+        "php": "^8.0",
         "ext-json": "*",
-        "grixu/api-client": "^2.0",
-        "grixu/socius-models": "^1.1.6",
-        "guzzlehttp/guzzle": "^7.2",
-        "illuminate/console": "^8.0",
-        "illuminate/contracts": "^8.0",
-        "illuminate/database": "^8.0",
-        "illuminate/http": "^8.0",
-        "illuminate/support": "^8.0",
-        "spatie/data-transfer-object": "^2.5",
-        "spatie/enum": "^3.4",
-        "spatie/laravel-enum": "^2.0",
-        "spatie/laravel-webhook-client": "^2.7"
+        "grixu/api-client": "^3.0",
+        "grixu/socius-models": "^1.1.6"
     },
     "require-dev": {
         "grixu/data-factories": "^1.0",
         "orchestra/testbench": "^6.0",
-        "phpunit/phpunit": "^9.3",
-        "spatie/laravel-ray": "^1.7"
+        "phpunit/phpunit": "^9.3"
     },
     "autoload": {
         "psr-4": {
