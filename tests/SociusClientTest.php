@@ -2,6 +2,7 @@
 
 namespace Grixu\SociusClient\Tests;
 
+use Exception;
 use Grixu\ApiClient\ApiClientServiceProvider;
 use Grixu\ApiClient\JsonApiFetcher;
 use Grixu\SociusClient\SociusClient;
@@ -38,7 +39,7 @@ class SociusClientTest extends TestCase
         try {
             $this->obj->nonExists();
             $this->assertTrue(false);
-        } catch (\Exception) {
+        } catch (Exception) {
             $this->assertTrue(true);
         }
     }
@@ -62,7 +63,7 @@ class SociusClientTest extends TestCase
         try {
             $this->obj->product();
             $this->assertTrue(false);
-        } catch (\Exception) {
+        } catch (Exception) {
             $this->assertTrue(true);
         }
     }
@@ -107,5 +108,14 @@ class SociusClientTest extends TestCase
     protected function missingSortsConfig($app)
     {
         $app->config->set('socius-client.product.sorts', null);
+    }
+
+    /** @test */
+    public function it_make_fetcher_for_relationship_call()
+    {
+        $returnedObj = $this->obj->product_relationship();
+
+        $this->assertNotEmpty($returnedObj);
+        $this->assertEquals(JsonApiFetcher::class, $returnedObj::class);
     }
 }
