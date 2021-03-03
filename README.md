@@ -45,7 +45,8 @@ Use can use `SociusClient` facade to start make query to Socius API, by choosing
 - `branch`
 - `customer`
 - `warehouse`
-- `stock`
+- `order`
+- `order_element`
 
 After call one of those functions, you can add filters to query or sorting or request related data via
 calling `compose()` and one of below methods:
@@ -56,6 +57,17 @@ calling `compose()` and one of below methods:
 
 After that just call `fetch(page_number)` (or without `page_number` to fetch all data) and `getResults`
 to receive `DataTransferObjectCollection` object with received data from Socius API.
+
+You can also make a *relationship* call which download extra data which contains relationship details between models. It's easy to use them via calling one of those methods on `SociusClient`:
+
+- `product_relationship`
+- `category_relationship`
+- `description_relationship`
+- `operator_relationship`
+- `warehouse_relationship`
+- `stock_relationship`
+- `order_relationship`
+- `order_element_relationship`
 
 ### Changelog
 
