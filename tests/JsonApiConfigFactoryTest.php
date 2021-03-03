@@ -15,9 +15,17 @@ class JsonApiConfigFactoryTest extends TestCase
     }
 
     /** @test */
-    public function it_creates_config_obj()
+    public function it_creates_config_obj_for_module()
     {
         $returnedData = JsonApiConfigFactory::makeConfig('product');
+
+        $this->assertEquals(JsonApiConfig::class, $returnedData::class);
+    }
+
+    /** @test */
+    public function it_creates_config_obj_for_relationship()
+    {
+        $returnedData = JsonApiConfigFactory::makeBasicConfig();
 
         $this->assertEquals(JsonApiConfig::class, $returnedData::class);
     }
