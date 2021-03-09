@@ -23,4 +23,17 @@ class JsonApiConfigFactory
             sorts: config('socius-client.'.$configName.'.sorts')
         );
     }
+
+    public static function makeBasicConfig(): JsonApiConfig
+    {
+        return new JsonApiConfig(
+            baseUrl: config('socius-client.base_url'),
+            responseDataClass: PaginatedData::class,
+            responseParserClass: StraightKeyParser::class,
+            authType: 'oAuth2',
+            authUrl: config('socius-client.auth_url'),
+            authData: config('socius-client.auth_data'),
+            paginationParam: 'page'
+        );
+    }
 }

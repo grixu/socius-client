@@ -276,4 +276,55 @@ return [
             'receptionDate'
         ],
     ],
+
+    'order' => [
+        'url' => '/api/order',
+        'filters' => [
+            'orderNumber',
+            'xlId',
+            'warehouseId',
+            'operatorId',
+            'customerId',
+            'receiveStatus',
+            'isNull',
+            'notNull',
+        ],
+        'includes' => [
+            'product',
+            'operator',
+            'customer'
+        ],
+        'sorts' => [
+            'productId',
+            'warehouseId',
+            'customerId',
+            'sendingStatus'
+        ],
+    ],
+
+    'order_element' => [
+        'url' => '/api/order_element',
+        'filters' => [
+            'xlId',
+            'orderId',
+            'productId',
+            'warehouseId',
+            'amountLower',
+            'amountGreater',
+            'sentAtBefore',
+            'sentAtBetween',
+            'sentAtAfter',
+            'isNull',
+            'notNull',
+        ],
+        'includes' => [
+            'order',
+            'product',
+            'warehouse'
+        ],
+        'sorts' => [
+            'xlId',
+            'orderId',
+        ],
+    ],
 ];

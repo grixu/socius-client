@@ -13,13 +13,32 @@ use Grixu\ApiClient\JsonApiFetcher;
  * @method operator_role
  * @method branch
  * @method language
- * @method description
  * @method warehouse
  * @method stock
+ * @method order
+ * @method order_element
+ * @method product_relationship
+ * @method category_relationship
+ * @method operator_relationship
+ * @method description_relationship
+ * @method warehouse_relationship
+ * @method stock_relationship
+ * @method order_relationship
+ * @method order_element_relationship
  */
 class SociusClient
 {
     public function __call(string $name, array $parameters): JsonApiFetcher
+    {
+        if (str_contains($name, '_relationship')) {
+            $name = str_replace('_relationship', '', $name);
+            return $this->makeRelationshipFetcher($name);
+        }
+
+        return $this->makeModuleFetcher($name);
+    }
+
+    protected function makeModuleFetcher(string $name)
     {
         $this->validateConfig($name);
 
@@ -29,10 +48,20 @@ class SociusClient
         );
     }
 
+    protected function makeRelationshipFetcher(string $name)
+    {
+        $this->validateConfig($name);
+
+        return new JsonApiFetcher(
+            JsonApiConfigFactory::makeBasicConfig(),
+            config("socius-client.{$name}.url").'/relationships'
+        );
+    }
+
     protected function validateConfig($name): void
     {
         if (empty(config("socius-client.{$name}"))) {
-            throw new \Exception("Module {name} is not configured.");
+            throw new \Exception("Module {$name} is not configured.");
         }
 
         if (empty(config("socius-client.{$name}.url"))) {
