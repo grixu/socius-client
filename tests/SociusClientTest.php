@@ -118,4 +118,13 @@ class SociusClientTest extends TestCase
         $this->assertNotEmpty($returnedObj);
         $this->assertEquals(JsonApiFetcher::class, $returnedObj::class);
     }
+
+    /** @test */
+    public function it_make_fetcher_for_full_call()
+    {
+        $returnedObj = $this->obj->product_full();
+
+        $this->assertNotEmpty($returnedObj);
+        $this->assertEquals(JsonApiFetcher::class, $returnedObj::class);
+    }
 }
