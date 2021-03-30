@@ -10,7 +10,7 @@ return [
     ],
 
     'product' => [
-        'url' => '/api/product',
+        'url' => '/api/products',
         'filters' => [
             'name',
             'index',
@@ -45,7 +45,7 @@ return [
     ],
 
     'brand' => [
-        'url' => '/api/brand',
+        'url' => '/api/brands',
         'filters' => [
             'name',
         ],
@@ -58,7 +58,7 @@ return [
     ],
 
     'product_type' => [
-        'url' => '/api/product_type',
+        'url' => '/api/product_types',
         'filters' => [
             'name',
         ],
@@ -71,7 +71,7 @@ return [
     ],
 
     'category' => [
-        'url' => '/api/category',
+        'url' => '/api/categories',
         'filters' => [
             'name',
             'parentId',
@@ -90,7 +90,7 @@ return [
     ],
 
     'customer' => [
-        'url' => '/api/customer',
+        'url' => '/api/customers',
         'filters' => [
             'name',
             'country',
@@ -120,7 +120,7 @@ return [
     ],
 
     'branch' => [
-        'url' => '/api/branch',
+        'url' => '/api/branches',
         'filters' => [
             'name',
             'syncedBefore',
@@ -136,7 +136,7 @@ return [
     ],
 
     'operator' => [
-        'url' => '/api/operator',
+        'url' => '/api/operators',
         'filters' => [
             'name',
             'xlUsername',
@@ -160,7 +160,7 @@ return [
     ],
 
     'operator_role' => [
-        'url' => '/api/operator_role',
+        'url' => '/api/operator_roles',
         'filters' => [
             'name',
         ],
@@ -173,7 +173,7 @@ return [
     ],
 
     'language' => [
-        'url' => '/api/language',
+        'url' => '/api/languages',
         'filters' => [
             'name',
         ],
@@ -184,7 +184,7 @@ return [
     ],
 
     'description' => [
-        'url' => '/api/description',
+        'url' => '/api/descriptions',
         'filters' => [
             'name',
             'desc',
@@ -215,7 +215,7 @@ return [
     ],
 
     'warehouse' => [
-        'url' => '/api/warehouse',
+        'url' => '/api/warehouses',
         'filters' => [
             'name',
             'desc',
@@ -251,7 +251,7 @@ return [
     ],
 
     'stock' => [
-        'url' => '/api/stock',
+        'url' => '/api/stocks',
         'filters' => [
             'amount',
             'amountGreater',
@@ -278,7 +278,7 @@ return [
     ],
 
     'order' => [
-        'url' => '/api/order',
+        'url' => '/api/orders',
         'filters' => [
             'orderNumber',
             'xlId',
@@ -303,7 +303,7 @@ return [
     ],
 
     'order_element' => [
-        'url' => '/api/order_element',
+        'url' => '/api/order_elements',
         'filters' => [
             'xlId',
             'orderId',

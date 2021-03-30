@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 2.2.1 - 2021-03-30
+
+- Updated API urls in config file due to changes in Socius
+
+## 2.2.0 - 2021-03-30
+
+- Added `_dataset` requests which was added in Socius v3.2.0
+
 ## 2.1.0 - 2021-03-09
 
 - Added order & order_element modules
