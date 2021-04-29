@@ -12,6 +12,7 @@ return [
     'product' => [
         'url' => '/api/products',
         'filters' => [
+            'xl_id',
             'name',
             'index',
             'ean',
@@ -47,6 +48,7 @@ return [
     'brand' => [
         'url' => '/api/brands',
         'filters' => [
+            'xl_id',
             'name',
         ],
         'includes' => [
@@ -60,6 +62,7 @@ return [
     'product_type' => [
         'url' => '/api/product_types',
         'filters' => [
+            'xl_id',
             'name',
         ],
         'includes' => [
@@ -73,6 +76,7 @@ return [
     'category' => [
         'url' => '/api/categories',
         'filters' => [
+            'xl_id',
             'name',
             'parentId',
             'syncedBefore',
@@ -92,6 +96,7 @@ return [
     'customer' => [
         'url' => '/api/customers',
         'filters' => [
+            'xl_id',
             'name',
             'country',
             'postalCode',
@@ -122,6 +127,7 @@ return [
     'branch' => [
         'url' => '/api/branches',
         'filters' => [
+            'xl_id',
             'name',
             'syncedBefore',
             'syncedBetween',
@@ -138,6 +144,7 @@ return [
     'operator' => [
         'url' => '/api/operators',
         'filters' => [
+            'xl_id',
             'name',
             'xlUsername',
             'email',
@@ -162,6 +169,7 @@ return [
     'operator_role' => [
         'url' => '/api/operator_roles',
         'filters' => [
+            'xl_id',
             'name',
         ],
         'includes' => [
@@ -175,6 +183,7 @@ return [
     'language' => [
         'url' => '/api/languages',
         'filters' => [
+            'xl_id',
             'name',
         ],
         'includes' => [],
@@ -186,6 +195,7 @@ return [
     'description' => [
         'url' => '/api/descriptions',
         'filters' => [
+            'xl_id',
             'name',
             'desc',
             'pageTitle',
@@ -217,6 +227,7 @@ return [
     'warehouse' => [
         'url' => '/api/warehouses',
         'filters' => [
+            'xl_id',
             'name',
             'desc',
             'internal',
@@ -253,6 +264,7 @@ return [
     'stock' => [
         'url' => '/api/stocks',
         'filters' => [
+            'xl_id',
             'amount',
             'amountGreater',
             'amountLower',
@@ -280,8 +292,8 @@ return [
     'order' => [
         'url' => '/api/orders',
         'filters' => [
+            'xl_id',
             'orderNumber',
-            'xlId',
             'warehouseId',
             'operatorId',
             'customerId',
@@ -305,7 +317,7 @@ return [
     'order_element' => [
         'url' => '/api/order_elements',
         'filters' => [
-            'xlId',
+            'xl_id',
             'orderId',
             'productId',
             'warehouseId',
