@@ -41,26 +41,18 @@ class LoaderTestCase extends TestCase
     }
 
     /** @test */
-    public function it_getting_chunked_data()
+    public function getters_working_fine()
     {
         $returnedData = $this->loader->get();
 
         $this->assertNotEmpty($returnedData);
         $this->assertTrue($returnedData instanceof Collection);
-    }
 
-    /** @test */
-    public function it_getting_raw_data()
-    {
         $returnedData = $this->loader->getRaw();
 
         $this->assertNotEmpty($returnedData);
         $this->assertTrue($returnedData instanceof Collection);
-    }
 
-    /** @test */
-    public function it_getting_count()
-    {
         $returnedData = $this->loader->getCount();
 
         $this->assertNotEmpty($returnedData);
