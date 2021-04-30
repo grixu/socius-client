@@ -24,9 +24,5 @@
         <server name="APP_ENV" value="testing"/>
         <server name="BCRYPT_ROUNDS" value="4"/>
         <server name="CACHE_DRIVER" value="file"/>
-        <server name="SOCIUS_BASE_URL" value=""/>
-        <server name="SOCIUS_CLIENT_KEY" value=""/>
-        <server name="SOCIUS_CLIENT_ID" value=""/>
-        <server name="SOCIUS_OAUTH" value=""/>
     </php>
 </phpunit>
