@@ -3,7 +3,7 @@
 namespace Grixu\SociusClient\Tests\Helpers;
 
 use Grixu\ApiClient\JsonApiFetcher;
-use Grixu\Synchronizer\Contracts\LoaderInterface;
+use Grixu\Synchronizer\Process\Contracts\LoaderInterface;
 use Illuminate\Support\Collection;
 
 class LoaderTestCase extends TestCase
