@@ -68,7 +68,7 @@ class SociusClient
 
         return new JsonApiFetcher(
             JsonApiConfigFactory::makeBasicConfig(),
-            config("socius-client.{$name}.url").'/relationships'
+            config("socius-client.{$name}.url").'/relations'
         );
     }
 
