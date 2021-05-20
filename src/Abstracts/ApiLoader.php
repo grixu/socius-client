@@ -4,7 +4,7 @@ namespace Grixu\SociusClient\Abstracts;
 
 use Grixu\ApiClient\JsonApiFetcher;
 use Grixu\SociusClient\SociusClient;
-use Grixu\Synchronizer\Contracts\LoaderInterface;
+use Grixu\Synchronizer\Process\Contracts\LoaderInterface;
 use Illuminate\Support\Collection;
 
 abstract class ApiLoader implements LoaderInterface
@@ -46,6 +46,11 @@ abstract class ApiLoader implements LoaderInterface
             $this->data = $this->query->getDataCollection()->flatten(1);
             $this->count = $this->data->count();
         }
+    }
+
+    public function chunk(\Closure $loop): void
+    {
+        $this->query->chunk($loop);
     }
 
     public function get(): Collection
