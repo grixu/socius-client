@@ -3,10 +3,11 @@
 namespace Grixu\SociusClient\Abstracts;
 
 use Grixu\ApiClient\Data\StraightKeyParser;
+use Grixu\Synchronizer\Process\Abstracts\AbstractParser;
 use Grixu\Synchronizer\Process\Contracts\ParserInterface;
-use Illuminate\Support\Collection;
+use Spatie\DataTransferObject\DataTransferObject;
 
-abstract class ApiParser implements ParserInterface
+abstract class ApiParser extends AbstractParser implements ParserInterface
 {
     private StraightKeyParser $parser;
 
@@ -15,8 +16,8 @@ abstract class ApiParser implements ParserInterface
         $this->parser = new StraightKeyParser($dtoClass);
     }
 
-    public function parse(Collection $collection): Collection
+    public function parseElement($model): DataTransferObject
     {
-        return $this->parser->parse($collection);
+        return $this->parser->parseElement($model);
     }
 }
