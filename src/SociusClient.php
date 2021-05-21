@@ -18,14 +18,14 @@ use Grixu\ApiClient\JsonApiFetcher;
  * @method stock
  * @method order
  * @method order_element
- * @method product_relationship
- * @method category_relationship
- * @method operator_relationship
- * @method description_relationship
- * @method warehouse_relationship
- * @method stock_relationship
- * @method order_relationship
- * @method order_element_relationship
+ * @method product_relations
+ * @method category_relations
+ * @method operator_relations
+ * @method description_relations
+ * @method warehouse_relations
+ * @method stock_relations
+ * @method order_relations
+ * @method order_element_relations
  * @method product_dataset
  * @method category_dataset
  * @method operator_dataset
@@ -39,9 +39,9 @@ class SociusClient
 {
     public function __call(string $name, array $parameters): JsonApiFetcher
     {
-        if (str_contains($name, '_relationship')) {
-            $name = str_replace('_relationship', '', $name);
-            return $this->makeRelationshipFetcher($name);
+        if (str_contains($name, '_relations')) {
+            $name = str_replace('_relations', '', $name);
+            return $this->makeRelationsFetcher($name);
         }
 
         if (str_contains($name, '_dataset')) {
@@ -62,13 +62,13 @@ class SociusClient
         );
     }
 
-    protected function makeRelationshipFetcher(string $name)
+    protected function makeRelationsFetcher(string $name)
     {
         $this->validateConfig($name);
 
         return new JsonApiFetcher(
             JsonApiConfigFactory::makeBasicConfig(),
-            config("socius-client.{$name}.url").'/relationships'
+            config("socius-client.{$name}.url").'/relations'
         );
     }
 

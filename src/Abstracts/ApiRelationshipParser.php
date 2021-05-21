@@ -3,7 +3,7 @@
 namespace Grixu\SociusClient\Abstracts;
 
 use Grixu\ApiClient\Data\StraightKeyParser;
-use Grixu\Synchronizer\Contracts\ParserInterface;
+use Grixu\Synchronizer\Process\Contracts\ParserInterface;
 use Illuminate\Support\Collection;
 
 abstract class ApiRelationshipParser implements ParserInterface

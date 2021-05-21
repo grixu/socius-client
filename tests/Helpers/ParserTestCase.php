@@ -2,8 +2,8 @@
 
 namespace Grixu\SociusClient\Tests\Helpers;
 
-use Grixu\Synchronizer\Contracts\LoaderInterface;
-use Grixu\Synchronizer\Contracts\ParserInterface;
+use Grixu\Synchronizer\Process\Contracts\LoaderInterface;
+use Grixu\Synchronizer\Process\Contracts\ParserInterface;
 use Illuminate\Support\Collection;
 
 class ParserTestCase extends TestCase
