@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Updated URL paths
 - Updated `api-client` to v3.3
+- Updated to `synchronizer` v4
 
 ## 2.3.0 - 2021-04-30
 
