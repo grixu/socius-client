@@ -4,10 +4,10 @@ namespace Grixu\SociusClient\Loaders;
 
 use Grixu\SociusClient\Abstracts\ApiLoader;
 
-class WarehouseRelationshipLoader extends ApiLoader
+class ProductRelationsLoader extends ApiLoader
 {
     public function __construct()
     {
-        parent::__construct('warehouse_relationship');
+        parent::__construct('product_relations');
     }
 }
