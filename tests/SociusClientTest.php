@@ -113,7 +113,7 @@ class SociusClientTest extends TestCase
     /** @test */
     public function it_make_fetcher_for_relationship_call()
     {
-        $returnedObj = $this->obj->product_relationship();
+        $returnedObj = $this->obj->product_relations();
 
         $this->assertNotEmpty($returnedObj);
         $this->assertEquals(JsonApiFetcher::class, $returnedObj::class);

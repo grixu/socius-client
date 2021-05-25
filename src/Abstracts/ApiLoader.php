@@ -71,4 +71,13 @@ abstract class ApiLoader implements LoaderInterface
     {
         return $this->query;
     }
+
+    public function getPiece(int $piece): Collection
+    {
+        $this->query->getUrlCompose()->setPage('page', $piece);
+
+        $dataFetcher = $this->query->makeDataFetcher();
+
+        return $dataFetcher->get()->getDataCollection();
+    }
 }
