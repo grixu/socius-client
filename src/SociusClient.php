@@ -6,34 +6,34 @@ use Exception;
 use Grixu\ApiClient\JsonApiFetcher;
 
 /**
- * @method product
- * @method product_type
- * @method brand
- * @method category
- * @method operator
- * @method operator_role
- * @method branch
- * @method language
- * @method warehouse
- * @method stock
- * @method order
- * @method order_element
- * @method product_relations
- * @method category_relations
- * @method operator_relations
- * @method description_relations
- * @method warehouse_relations
- * @method stock_relations
- * @method order_relations
- * @method order_element_relations
- * @method product_dataset
- * @method category_dataset
- * @method operator_dataset
- * @method description_dataset
- * @method warehouse_dataset
- * @method stock_dataset
- * @method order_dataset
- * @method order_element_dataset
+ * @method product()
+ * @method product_type()
+ * @method brand()
+ * @method category()
+ * @method operator()
+ * @method operator_role()
+ * @method branch()
+ * @method language()
+ * @method warehouse()
+ * @method stock()
+ * @method order()
+ * @method order_element()
+ * @method product_relations()
+ * @method category_relations()
+ * @method operator_relations()
+ * @method description_relations()
+ * @method warehouse_relations()
+ * @method stock_relations()
+ * @method order_relations()
+ * @method order_element_relations()
+ * @method product_dataset()
+ * @method category_dataset()
+ * @method operator_dataset()
+ * @method description_dataset()
+ * @method warehouse_dataset()
+ * @method stock_dataset()
+ * @method order_dataset()
+ * @method order_element_dataset()
  */
 class SociusClient
 {
