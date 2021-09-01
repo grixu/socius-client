@@ -19,12 +19,15 @@
         "php": "^8.0",
         "ext-json": "*",
         "grixu/api-client": "^3.3.1",
-        "grixu/socius-models": "^2.2",
-        "grixu/synchronizer": "^4.2.0",
+        "grixu/socius-models": "^2.3.1",
+        "grixu/synchronizer": "^5.0",
         "grixu/socius-dto": "^1.0"
     },
     "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.1",
         "grixu/data-factories": "^1.0",
+        "nunomaduro/larastan": "^0.7.12",
+        "nunomaduro/phpinsights": "^2.0",
         "orchestra/testbench": "^6.0",
         "phpunit/phpunit": "^9.3"
     },
@@ -39,8 +42,12 @@
         }
     },
     "scripts": {
-        "test": "vendor/bin/phpunit",
-        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+        "test": "vendor/bi.php-cs-fixer.phpn/phpunit && vendor/bin/phpstan analyse && php artisan insights",
+        "test:unit": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
+        "lint": "vendor/bin/php-cs-fixer fix",
+        "insights": "php artisan insights",
+        "phpstan": "vendor/bin/phpstan analyse"
     },
     "config": {
         "sort-packages": true
