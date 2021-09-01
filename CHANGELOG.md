@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 The format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 2.5.1 - 2021-09-01
+
+- Added PHPStan
+- Added PHP_CS_Fixer
+- Added config for PHPStan & PHP_CS_Fixer
+- Added PHP Insights
+- Added separate pipeline for PHP Insights
+- Code style fixed
+- Bug fixed in RelationshipParser
+- Added Dependabot
+
 ## 2.5.0 - 2021-05-25
 
 - Updated `synchronizer` to v4.2.0
