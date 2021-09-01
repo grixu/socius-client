@@ -6,7 +6,7 @@ return [
     'auth_url' => env('SOCIUS_OAUTH'),
     'auth_data' => [
         'key' => env('SOCIUS_CLIENT_ID'),
-        'secret' => env('SOCIUS_CLIENT_KEY')
+        'secret' => env('SOCIUS_CLIENT_KEY'),
     ],
 
     'product' => [
@@ -30,7 +30,7 @@ return [
             'syncedBetween',
             'syncedAfter',
             'isNull',
-            'notNull'
+            'notNull',
         ],
         'includes' => [
             'brand',
@@ -41,7 +41,7 @@ return [
         'sorts' => [
             'name',
             'index',
-            'price'
+            'price',
         ],
     ],
 
@@ -55,7 +55,7 @@ return [
             'products',
         ],
         'sorts' => [
-            'name'
+            'name',
         ],
     ],
 
@@ -66,10 +66,10 @@ return [
             'name',
         ],
         'includes' => [
-            'products'
+            'products',
         ],
         'sorts' => [
-            'name'
+            'name',
         ],
     ],
 
@@ -81,15 +81,15 @@ return [
             'parentId',
             'syncedBefore',
             'syncedBetween',
-            'syncedAfter'
+            'syncedAfter',
         ],
         'includes' => [
             'children',
-            'parent'
+            'parent',
         ],
         'sorts' => [
             'name',
-            'parentId'
+            'parentId',
         ],
     ],
 
@@ -111,7 +111,7 @@ return [
             'operatorId',
             'syncedBefore',
             'syncedBetween',
-            'syncedAfter'
+            'syncedAfter',
         ],
         'includes' => [
             'operator',
@@ -120,7 +120,7 @@ return [
             'name',
             'country',
             'voivodeship',
-            'operatorId'
+            'operatorId',
         ],
     ],
 
@@ -131,7 +131,7 @@ return [
             'name',
             'syncedBefore',
             'syncedBetween',
-            'syncedAfter'
+            'syncedAfter',
         ],
         'includes' => [
             'operators',
@@ -152,7 +152,7 @@ return [
             'xlId',
             'syncedBefore',
             'syncedBetween',
-            'syncedAfter'
+            'syncedAfter',
         ],
         'includes' => [
             'role',
@@ -162,7 +162,7 @@ return [
         'sorts' => [
             'name',
             'email',
-            'xlUsername'
+            'xlUsername',
         ],
     ],
 
@@ -188,7 +188,7 @@ return [
         ],
         'includes' => [],
         'sorts' => [
-            'name'
+            'name',
         ],
     ],
 
@@ -212,15 +212,15 @@ return [
             'lastModificationDescAfter',
             'syncedBefore',
             'syncedBetween',
-            'syncedAfter'
+            'syncedAfter',
         ],
         'includes' => [
             'product',
-            'language'
+            'language',
         ],
         'sorts' => [
             'name',
-            'languageId'
+            'languageId',
         ],
     ],
 
@@ -244,12 +244,12 @@ return [
             'lastModificationAfter',
             'syncedBefore',
             'syncedBetween',
-            'syncedAfter'
+            'syncedAfter',
         ],
         'includes' => [
             'customer',
             'operator',
-            'stocks'
+            'stocks',
         ],
         'sorts' => [
             'name',
@@ -257,7 +257,7 @@ return [
             'country',
             'locked',
             'stockCounting',
-            'lastModification'
+            'lastModification',
         ],
     ],
 
@@ -276,16 +276,16 @@ return [
             'receptionAfter',
             'syncedBefore',
             'syncedBetween',
-            'syncedAfter'
+            'syncedAfter',
         ],
         'includes' => [
             'product',
-            'warehouse'
+            'warehouse',
         ],
         'sorts' => [
             'productId',
             'warehouseId',
-            'receptionDate'
+            'receptionDate',
         ],
     ],
 
@@ -304,13 +304,13 @@ return [
         'includes' => [
             'product',
             'operator',
-            'customer'
+            'customer',
         ],
         'sorts' => [
             'productId',
             'warehouseId',
             'customerId',
-            'sendingStatus'
+            'sendingStatus',
         ],
     ],
 
@@ -332,7 +332,7 @@ return [
         'includes' => [
             'order',
             'product',
-            'warehouse'
+            'warehouse',
         ],
         'sorts' => [
             'xlId',

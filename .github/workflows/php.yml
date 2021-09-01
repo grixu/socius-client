@@ -35,7 +35,7 @@ jobs:
         SOCIUS_CLIENT_KEY: ${{ secrets.SOCIUS_CLIENT_KEY }}
         SOCIUS_CLIENT_ID:  ${{ secrets.SOCIUS_CLIENT_ID }}
         SOCIUS_OAUTH: ${{ secrets.SOCIUS_OAUTH }}
-      run: composer run-script test
+      run: composer run-script test:unit
 
     - name: Send Slack notification
       uses: 8398a7/action-slack@v2

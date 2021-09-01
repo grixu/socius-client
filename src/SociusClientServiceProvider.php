@@ -11,7 +11,7 @@ class SociusClientServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'socius-client');
 
         $this->app->singleton('socius-client', function () {
-            return new SociusClient;
+            return new SociusClient();
         });
     }
 

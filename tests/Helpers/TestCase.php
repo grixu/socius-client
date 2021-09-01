@@ -16,7 +16,7 @@ class TestCase extends OrchestraTestCase
             ApiClientServiceProvider::class,
             SynchronizerServiceProvider::class,
             SociusClientServiceProvider::class,
-            SociusModelsServiceProvider::class
+            SociusModelsServiceProvider::class,
         ];
     }
 }

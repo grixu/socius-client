@@ -17,11 +17,10 @@ abstract class ApiLoader implements LoaderInterface
     {
         $sc = new SociusClient();
         /** @var JsonApiFetcher $dataFetcher */
-        $this->query = $sc->$module();
+        $this->query = $sc->{$module}();
 
         $this->data = collect();
     }
-
 
     public function buildQuery(?array $foreignKeys = []): static
     {
