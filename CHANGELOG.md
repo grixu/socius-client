@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added separate pipeline for PHP Insights
 - Code style fixed
 - Bug fixed in RelationshipParser
+- Added Dependabot
 
 ## 2.5.0 - 2021-05-25
 
