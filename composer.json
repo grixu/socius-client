@@ -19,7 +19,7 @@
         "php": "^8.0",
         "ext-json": "*",
         "grixu/api-client": "^3.3.1",
-        "grixu/socius-models": "^2.4.2",
+        "grixu/socius-models": "^2.4.2 || ^3.0.0",
         "grixu/synchronizer": "^5.0",
         "grixu/socius-dto": "^1.0"
     },
