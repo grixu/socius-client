@@ -11,25 +11,26 @@
     "authors": [
         {
             "name": "Mateusz Gostański",
-            "email": "mg@grixu.dev",
+            "email": "mateusz.gostanski@gmail.com",
             "role": "Developer"
         }
     ],
     "require": {
         "php": "^8.0",
         "ext-json": "*",
-        "grixu/api-client": "^3.3.1",
-        "grixu/socius-models": "^3.0",
-        "grixu/synchronizer": "^5.0",
-        "grixu/socius-dto": "^1.0"
+        "grixu/api-client": "^3.4",
+        "grixu/socius-models": "^3.1",
+        "grixu/synchronizer": "^5.2",
+        "grixu/socius-dto": "^1.1"
     },
     "require-dev": {
+        "brianium/paratest": "^6.3",
         "friendsofphp/php-cs-fixer": "^3.1",
-        "grixu/data-factories": "^1.0",
-        "nunomaduro/larastan": "^0.7.12",
+        "grixu/data-factories": "^1.1",
+        "nunomaduro/larastan": "^0.7.12 || ^1.0.0",
         "nunomaduro/phpinsights": "^2.0",
         "orchestra/testbench": "^6.0",
-        "phpunit/phpunit": "^9.3"
+        "phpunit/phpunit": "^9.5"
     },
     "autoload": {
         "psr-4": {
@@ -44,6 +45,7 @@
     "scripts": {
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
+        "paratest": "XDEBUG_MODE=coverage vendor/bin/paratest",
         "cs": "vendor/bin/php-cs-fixer fix",
         "insights": "vendor/bin/phpinsights",
         "stan": "vendor/bin/phpstan analyse"
