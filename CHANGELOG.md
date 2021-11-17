@@ -1,8 +1,20 @@
 # Changelog
+
 All notable changes to this project will be documented in this file.
 
 The format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## 2.7.0 - 2021-11-17
+
+- Added `composer-git-hooks`
+- Configured hooks with auto-install/update
+- Added timeouts in pipelines
+- Added  auto-merge pipeline for small updates made by dependabot
+- Added `x-ray`
+- Added `x-ray` checking in CI pipeline
+- Added `x-ray` checking in git hooks
+- Added `changelog-updater-action` to CD pipeline
 
 ## 2.6.2 - 2021-11-08
 
@@ -45,7 +57,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 2.3.0 - 2021-04-30
 
-- Updated `relationship-data-transfer-object` 
+- Updated `relationship-data-transfer-object`
 - DTO v3
 - Created Parsers & Loaders for easy using Socius API in Laravel project which need to sync data
 
@@ -82,11 +94,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 1.3.0 - 2021-01-26
 
-- Use of `grixu/socius-models` 
+- Use of `grixu/socius-models`
 - Refactor actual DTOs to extend those from `grixu/socius-models`
 - Removed Factory (for DTOs), instead use `grixu/data-factories`
 - An updated filter, include and sort enums to used camelCased params
-- An updated actions to parse data from Socius v 3.0 
+- An updated actions to parse data from Socius v 3.0
 - Updated to PHP8
 
 ## 1.2.0 - 2021-01-04
@@ -122,4 +134,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Bugfix in AddSortAction
 
 ## 1.0.0 - 2020-10-29
+
 - Initial release
