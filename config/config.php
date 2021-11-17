@@ -35,7 +35,7 @@ return [
             'productType',
             'stocks',
             'descriptions',
-            'attachments'
+            'attachments',
         ],
         'sorts' => [
             'name',
