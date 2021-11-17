@@ -24,13 +24,15 @@
         "grixu/socius-dto": "^1.1"
     },
     "require-dev": {
+        "brainmaestro/composer-git-hooks": "^2.8",
         "brianium/paratest": "^6.3",
         "friendsofphp/php-cs-fixer": "^3.1",
         "grixu/data-factories": "^1.1",
         "nunomaduro/larastan": "^0.7.12 || ^1.0.0",
         "nunomaduro/phpinsights": "^2.0",
         "orchestra/testbench": "^6.0",
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "^9.5",
+        "spatie/x-ray": "^1.1"
     },
     "autoload": {
         "psr-4": {
@@ -48,7 +50,9 @@
         "paratest": "XDEBUG_MODE=coverage vendor/bin/paratest",
         "cs": "vendor/bin/php-cs-fixer fix",
         "insights": "vendor/bin/phpinsights",
-        "stan": "vendor/bin/phpstan analyse"
+        "stan": "vendor/bin/phpstan analyse",
+        "cghooks": "vendor/bin/cghooks",
+        "xray": "vendor/bin/x-ray src"
     },
     "config": {
         "sort-packages": true
@@ -61,6 +65,21 @@
             "aliases": {
                 "SociusClient": "Grixu\\SociusClient\\SociusClientFacade"
             }
+        },
+        "hooks": {
+            "config": {
+                "stop-on-failure": ["pre-commit", "commit-msg"]
+            },
+            "pre-commit": [
+                "export PATH=\"/usr/local/homebrew/bin:$PATH\"",
+                "./vendor/bin/x-ray src",
+                "./vendor/bin/php-cs-fixer fix"
+            ],
+            "commit-msg": "grep -E '^((feat|chore|docs|refactor|fix){1}\\:{1}\\s{1}[a-z]{1}|Merge branch).*' $1",
+            "post-merge": [
+                "export PATH=\"/usr/local/homebrew/bin:$PATH\"",
+                "composer install"
+            ]
         }
     }
 }
